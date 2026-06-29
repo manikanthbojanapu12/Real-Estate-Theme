@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Stackly</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+/* Custom local styles for timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: var(--border);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background: transparent;
+  width: 50%;
+  box-sizing: border-box;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: -8px;
+  background: #fff;
+  border: 4px solid var(--orange);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.left-item {
+  left: 0;
+  text-align: right;
+}
+.right-item {
+  left: 50%;
+  text-align: left;
+}
+.right-item::after {
+  left: -8px;
+}
+.timeline-content {
+  padding: 20px 30px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+}
+.timeline-year {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    text-align: left;
+  }
+  .timeline-item::after {
+    left: 23px;
+  }
+  .left-item {
+    left: 0;
+  }
+  .right-item {
+    left: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-edu-wrapper">
+    <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" />
+          <stop offset="50%" stop-color="#ff6b35" />
+          <stop offset="100%" stop-color="#ffcc00" />
+        </linearGradient>
+        <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="ld-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+  </div>
+  <div class="ld-bar-bg"><div class="ld-bar"></div></div>
+  <div class="ld-words">Opening communication lines...</div>
+</div>
+
+<!-- SCROLL TOP -->
+<div id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_gold.webp" alt="Stackly Logo" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='signup.html'">Sign Up</button>
+    </div>
+    <div class="hamburger" id="ham">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <span id="mob-close">✕</span>
+  <div class="mob-menu-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" style="height: 48px; object-fit: contain;">
+  </div>
+  <div class="mob-menu-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="mob-menu-actions">
+    <a href="login.html" class="mob-menu-btn secondary">Login</a>
+    <a href="signup.html" class="mob-menu-btn">Sign Up</a>
+  </div>
+</div>
+<!-- CONTACT HERO -->
+<section id="contact-hero" style="background: linear-gradient(135deg,#0c1412 0%,#20322c 100%); min-height: 50vh; display: flex; align-items: center; color: #fff; padding: 80px 0; overflow: hidden; position: relative;">
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="grid-split-12-08" style="gap: 50px; align-items: center;">
+      <div class="hero-left">
+        <div class="sec-eyebrow" style="color: var(--orange); margin-bottom: 15px;">Connect With Us</div>
+        <h1 class="contact-hero-title" style="font-family: 'Raleway', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px;">
+          Let's Build Something <span style="color: var(--orange);">Exceptional</span>
+        </h1>
+        <p class="contact-hero-sub" style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 30px; max-width: 620px;">
+          Our registerment coordinators, enterprise consultants, and technical advisors are available to guide you toward the right path. Get in touch today.
+        </p>
+        <a href="404.html" class="hbtn-main">📨 Book Support Ticket</a>
+      </div>
+      <div class="hero-right">
+        <img src="downloaded_images/real-estate-agent.webp" alt="Contact Hero Image" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); aspect-ratio: 16/10; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT PANEL (FORM & INFO) -->
+<section id="ticket-form" style="background: #fff; padding: 90px 0;">
+  <div class="container">
+    <div class="contact-inner grid-split-1-13" style="gap: 60px;">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="sec-eyebrow" style="justify-content: flex-start;">Support Center</div>
+        <h2 class="sec-title" style="font-size: 2rem;">Contact <span>Channels</span></h2>
+        <p style="color: var(--gray); font-size: 0.88rem; line-height: 1.65; margin-bottom: 30px;">
+          Choose the most convenient way to reach out. We aim to respond to all web inquiries within 12 hours.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; gap: 15px; align-items: flex-start; background: var(--light); border: 1px solid var(--border); padding: 20px; border-radius: 16px;">
+            <div style="font-size: 1.4rem; background: var(--grad); color:#fff; width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:12px;">✉️</div>
+            <div>
+              <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Direct Support Email</h5>
+              <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">help@stackly.com<br>info@stackly.com</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 15px; align-items: flex-start; background: var(--light); border: 1px solid var(--border); padding: 20px; border-radius: 16px;">
+            <div style="font-size: 1.4rem; background: var(--grad); color:#fff; width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:12px;">📞</div>
+            <div>
+              <h5 style="font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Call Center Hotlines</h5>
+              <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">+91-427-257-0051<br>Mon - Sat, 9 AM - 6 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticket Form -->
+      <div class="contact-form-wrap" style="background: var(--light); border: 1px solid var(--border); border-radius: 24px; padding: 40px;">
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy); margin-bottom: 25px;">Open a Support Case</h3>
+        <form id="supportForm" onsubmit="handleSupportSubmit(event)">
+          <div class="form-row grid-split-1-1" style="gap: 15px;">
+            <div class="form-group">
+              <label style="font-size: 0.76rem; font-weight: 700; color: var(--navy2); display: block; margin-bottom: 6px;">Your Name</label>
+              <input type="text" id="supportName" placeholder="John Doe" required oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" style="width:100%; padding:12px; border:1.5px solid var(--border); border-radius:10px; font-size:0.86rem; outline:none;">
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.76rem; font-weight: 700; color: var(--navy2); display: block; margin-bottom: 6px;">Email Address</label>
+              <input type="email" id="supportEmail" placeholder="john@example.com" required style="width:100%; padding:12px; border:1.5px solid var(--border); border-radius:10px; font-size:0.86rem; outline:none;">
+            </div>
+          </div>
+          <div class="form-row grid-split-1-1" style="gap: 15px; margin-top: 15px;">
+            <div class="form-group" style="position: relative; z-index: 999;">
+              <label style="font-size: 0.76rem; font-weight: 700; color: var(--navy2); display: block; margin-bottom: 6px;">Institution / Profile Type</label>
+              <!-- Custom Dropdown to perfectly respect mobile bounds -->
+              <div class="custom-select-wrapper" style="position:relative; user-select:none; z-index:999;" id="customSelectWrapper">
+                <div class="custom-select-display" id="customSelectDisplay" style="width:100%; padding:12px; border:1.5px solid var(--border); border-radius:10px; font-size:0.86rem; background:#fff; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color: var(--navy);">
+                  <span id="supportTypeDisplay">Individual Customer</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gray)" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div class="custom-select-options" id="customSelectOptions" style="display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border:1.5px solid var(--border); border-radius:10px; margin-top:4px; z-index:1000; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.15);">
+                  <div class="custom-option" data-value="Individual" style="padding:12px 16px; font-size:0.86rem; cursor:pointer; border-bottom:1px solid #f1f5f9; color: var(--navy); transition: background 0.2s;">Individual Customer</div>
+                  <div class="custom-option" data-value="Professional" style="padding:12px 16px; font-size:0.86rem; cursor:pointer; border-bottom:1px solid #f1f5f9; color: var(--navy); transition: background 0.2s;">Professional / Developer</div>
+                  <div class="custom-option" data-value="Agency" style="padding:12px 16px; font-size:0.86rem; cursor:pointer; border-bottom:1px solid #f1f5f9; color: var(--navy); transition: background 0.2s;">Agency / College Rep.</div>
+                  <div class="custom-option" data-value="Enterprise" style="padding:12px 16px; font-size:0.86rem; cursor:pointer; color: var(--navy); transition: background 0.2s;">Enterprise Coordinator</div>
+                </div>
+                <input type="hidden" id="supportType" name="supportType" value="Individual">
+              </div>
+
+              <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                  const wrapper = document.getElementById('customSelectWrapper');
+                  const display = document.getElementById('customSelectDisplay');
+                  const optionsBox = document.getElementById('customSelectOptions');
+                  const displayText = document.getElementById('supportTypeDisplay');
+                  const hiddenInput = document.getElementById('supportType');
+                  const options = document.querySelectorAll('.custom-option');
+
+                  display.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    optionsBox.style.display = optionsBox.style.display === 'block' ? 'none' : 'block';
+                  });
+
+                  options.forEach(opt => {
+                    opt.addEventListener('click', () => {
+                      displayText.textContent = opt.textContent;
+                      hiddenInput.value = opt.getAttribute('data-value');
+                      optionsBox.style.display = 'none';
+                    });
+                    
+                    opt.addEventListener('mouseenter', () => opt.style.background = '#f8fafc');
+                    opt.addEventListener('mouseleave', () => opt.style.background = 'transparent');
+                  });
+
+                  document.addEventListener('click', (e) => {
+                    if (!wrapper.contains(e.target)) {
+                      optionsBox.style.display = 'none';
+                    }
+                  });
+                });
+              </script>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.76rem; font-weight: 700; color: var(--navy2); display: block; margin-bottom: 6px;">Subject</label>
+              <input type="text" id="supportSubject" placeholder="e.g. Property Inquiry" required oninput="this.value = this.value.replace(/[^A-Za-z0-9\s]/g, '')" style="width:100%; padding:12px; border:1.5px solid var(--border); border-radius:10px; font-size:0.86rem; outline:none;">
+            </div>
+          </div>
+          <div class="form-group" style="margin-top: 15px;">
+            <label style="font-size: 0.76rem; font-weight: 700; color: var(--navy2); display: block; margin-bottom: 6px;">Case Description</label>
+            <textarea id="supportMessage" placeholder="Describe your inquiry, custom training needs, or account issues..." required style="width:100%; min-height:120px; padding:12px; border:1.5px solid var(--border); border-radius:10px; font-size:0.86rem; outline:none; resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="form-submit" style="margin-top: 25px; width: 100%;">Submit Case Request &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL LOCATIONS -->
+<section id="locations" style="background: var(--light); padding: 90px 0;">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Our Presence</div>
+      <h2 class="sec-title">Global <span>Offices</span></h2>
+      <p class="sec-desc">Visit us or send direct physical mail to our registered administrative hubs.</p>
+    </div>
+
+    <div class="grid-3col" style="gap: 30px; margin-top: 50px;">
+      <!-- Office 1 -->
+      <div class="feat-card" style="padding: 30px; border-radius: 16px;">
+        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Salem Head Office</h4>
+        <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.6;">
+          45/12 Best Avenue Street,<br>Salem, TN 636001,<br>India
+        </p>
+      </div>
+
+      <!-- Office 2 -->
+      <div class="feat-card" style="padding: 30px; border-radius: 16px;">
+        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px;">Bangalore Lab</h4>
+        <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.6;">
+          7th Block, Koramangala,<br>Bangalore, KA 560095,<br>India
+        </p>
+      </div>
+
+      <!-- Office 3 -->
+      <div class="feat-card" style="padding: 30px; border-radius: 16px;">
+        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px;">San Jose Branch</h4>
+        <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.6;">
+          101 Innovation Way,<br>San Jose, CA 95112,<br>United States
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENTERPRISE PARTNERSHIP SECTION -->
+<section id="enterprise-inquiry" style="background: #fff; padding: 100px 0; overflow: hidden; border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="grid-split-1-1" style="gap: 60px; align-items: center;">
+      
+      <div class="rv-l">
+        <div class="sec-eyebrow">Enterprise Solutions</div>
+        <h2 class="sec-title">Enterprise Training <span>Partnerships</span></h2>
+        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.75; margin-bottom: 25px;">
+          Upskill your engineering, product, or design departments with custom corporate bootcamps. We build dedicated curricula, map achievements to your metrics, and deliver live coaching sessions.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <div style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">💼</div>
+            <div>
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Custom Curriculum Interior Ready</h4>
+              <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">Configure 4-12 week intensive property search pipelines mapped directly to your company's tech stacks.</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; align-items: flex-start;">
+            <div style="font-size: 1.3rem; background: var(--orange-light); color: var(--orange); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-weight: 700;">📈</div>
+            <div>
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Progress Monitoring</h4>
+              <p style="font-size: 0.78rem; color: var(--gray); line-height: 1.5;">Access advanced administrative dashboards tracking your engineers' completions and test scores.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="rv-r" style="position: relative;">
+        <div style="background: var(--light); border: 1px solid var(--border); padding: 15px; border-radius: 24px; box-shadow: var(--shadow);">
+          <img src="downloaded_images/real-estate-listing.webp" alt="Corporate Partnership Discussion" style="width: 100%; border-radius: 16px; display: block; object-fit: cover; aspect-ratio: 4/3;">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="fg-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:12px; display:inline-block;">
+          <img src="logo_gold.webp" alt="Stackly Logo" class="footer-logo-img">
+        </a>
+        <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
+        <div class="foot-soc">
+          <a class="fsoc" href="404.html">f</a>
+          <a class="fsoc" href="404.html">in</a>
+          <a class="fsoc" href="404.html">tw</a>
+          <a class="fsoc" href="404.html">yt</a>
+          <a class="fsoc" href="404.html">sk</a>
+        </div>
+      </div>
+      <div class="fg-col">
+        <h4>Property Resources</h4>
+        <ul>
+          <li><a href="404.html">Projects</a></li>
+          <li><a href="404.html">Events</a></li>
+          <li><a href="404.html">Innovations</a></li>
+          <li><a href="404.html">Publications</a></li>
+          <li><a href="404.html">Collaborations</a></li>
+          <li><a href="404.html">Clubs & Activities</a></li>
+        </ul>
+      </div>
+      <div class="fg-col">
+      <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fg-col">
+      <h4>Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li><span class="fc-icon">📍</span> Salem, Tamil Nadu, India</li>
+          <li><span class="fc-icon">📞</span> +91 98765 43210</li>
+          <li><span class="fc-icon">✉️</span> stackly@property searchplatform.com</li>
+          <li><span class="fc-icon">🌐</span> www.stacklyproperty searchplatform.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2024 Stackly. All rights reserved. Interior Readyed with ❤️ in Salem, Tamil Nadu.</p>
+      <div class="foot-links">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Service</a>
+        <a href="404.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+/* ===== LOADER TRANSITION ===== */
+const logo = document.querySelector('a.nav-logo');
+if (logo) {
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('show');
+      setTimeout(() => {
+        window.location.href = logo.getAttribute('href');
+      }, 1500);
+    } else {
+      window.location.href = logo.getAttribute('href');
+    }
+  });
+}
+
+/* ===== CURSOR ===== */
+const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
+document.querySelectorAll('a,button,.feat-card,.admin-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
+});
+
+/* ===== NAVBAR SCROLL ===== */
+const nb=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nb.classList.toggle('scrolled',scrollY>80);
+  document.getElementById('scrolltop').classList.toggle('show',scrollY>400);
+});
+
+/* ===== MOBILE MENU ===== */
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.add('open');
+  document.body.classList.add('no-scroll');
+  document.documentElement.classList.add('no-scroll');
+});
+document.getElementById('mob-close').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+});
+document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+}));
+
+
+/* ===== GSAP CONTACT ANIMATIONS ===== */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (typeof gsap !== 'undefined') {
+      gsap.from("#contact-hero .sec-eyebrow", { opacity: 0, y: -20, duration: 0.8, ease: "power2.out" });
+      gsap.from(".contact-hero-title", { opacity: 0, y: 30, duration: 1, delay: 0.2, ease: "power3.out" });
+      gsap.from(".contact-hero-sub", { opacity: 0, y: 20, duration: 1, delay: 0.4, ease: "power2.out" });
+      gsap.from("#contact-hero .hbtn-main", { opacity: 0, scale: 0.95, duration: 0.8, delay: 0.6, ease: "back.out(1.5)" });
+      gsap.from("#contact-hero img", { opacity: 0, x: 40, duration: 1.2, delay: 0.4, ease: "power3.out" });
+      
+      // Animate form field highlights
+      gsap.from(".form-group", {
+        opacity: 0,
+        y: 15,
+        duration: 0.6,
+        delay: 0.8,
+        stagger: 0.1,
+        ease: "power2.out"
+      });
+    }
+  }, 1500);
+});
+
+/* ===== FORM FOCUS MICRO ===== */
+document.querySelectorAll('.form-group input,.form-group textarea,.form-group select').forEach(el=>{
+  el.addEventListener('focus',()=> {
+    const lbl = el.parentElement.querySelector('label');
+    if(lbl) lbl.style.color='var(--orange)';
+  });
+  el.addEventListener('blur',()=> {
+    const lbl = el.parentElement.querySelector('label');
+    if(lbl) lbl.style.color='';
+  });
+});
+
+/* ===== CONTACT FORM VALIDATION & REDIRECT ===== */
+function handleSupportSubmit(e) {
+  e.preventDefault();
+  
+  const nameInput = document.getElementById('supportName');
+  const emailInput = document.getElementById('supportEmail');
+  const subjectInput = document.getElementById('supportSubject');
+  const messageInput = document.getElementById('supportMessage');
+  
+  const nameVal = nameInput.value.trim();
+  const emailVal = emailInput.value.trim();
+  const subjectVal = subjectInput.value.trim();
+  const messageVal = messageInput.value.trim();
+  
+  // 1. Name validation: Only alphabetic characters and spaces
+  const nameRegex = /^[A-Za-z\s]+$/;
+  if (!nameRegex.test(nameVal)) {
+    alert("Name field must contain only alphabetic characters and spaces.");
+    nameInput.focus();
+    return false;
+  }
+  
+  // 2. Email validation: Standard format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailVal)) {
+    alert("Please enter a valid email address.");
+    emailInput.focus();
+    return false;
+  }
+  
+  // 3. Subject validation: Must contain at least one alphabetic character, allowing alphanumeric (prevent purely numeric strings like "12")
+  const subjectRegex = /^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/;
+  if (!subjectRegex.test(subjectVal)) {
+    alert("Subject field must contain letters (numbers are allowed when combined with letters).");
+    subjectInput.focus();
+    return false;
+  }
+  
+  // 4. Description/Message validation: Cannot be empty
+  if (messageVal.length === 0) {
+    alert("Please enter your case description.");
+    messageInput.focus();
+    return false;
+  }
+  
+  // Success: Redirect to 404
+  window.location.href = "404.html";
+}
+
+/* ===== SCROLL REVEAL ===== */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

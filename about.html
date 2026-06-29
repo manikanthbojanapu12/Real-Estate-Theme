@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Stackly</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+/* Custom local styles for timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: var(--border);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background: transparent;
+  width: 50%;
+  box-sizing: border-box;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: -8px;
+  background: #fff;
+  border: 4px solid var(--orange);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.left-item {
+  left: 0;
+  text-align: right;
+}
+.right-item {
+  left: 50%;
+  text-align: left;
+}
+.right-item::after {
+  left: -8px;
+}
+.timeline-content {
+  padding: 20px 30px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+}
+.timeline-year {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--orange);
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    text-align: left;
+  }
+  .timeline-item::after {
+    left: 23px;
+  }
+  .left-item {
+    left: 0;
+  }
+  .right-item {
+    left: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-edu-wrapper">
+    <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" />
+          <stop offset="50%" stop-color="#ff6b35" />
+          <stop offset="100%" stop-color="#ffcc00" />
+        </linearGradient>
+        <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="ld-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+  </div>
+  <div class="ld-bar-bg"><div class="ld-bar"></div></div>
+  <div class="ld-words">Loading company history...</div>
+</div>
+
+<!-- SCROLL TOP -->
+<div id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_gold.webp" alt="Stackly Logo" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='signup.html'">Sign Up</button>
+    </div>
+    <div class="hamburger" id="ham">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <span id="mob-close">✕</span>
+  <div class="mob-menu-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" style="height: 48px; object-fit: contain;">
+  </div>
+  <div class="mob-menu-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="mob-menu-actions">
+    <a href="login.html" class="mob-menu-btn secondary">Login</a>
+    <a href="signup.html" class="mob-menu-btn">Sign Up</a>
+  </div>
+</div>
+
+<!-- ABOUT HERO -->
+<section id="about-hero" style="background: linear-gradient(135deg,#0a141d 0%,#202e3b 100%); min-height: 60vh; display: flex; align-items: center; color: #fff; padding: 100px 0; overflow: hidden; position: relative;">
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="grid-split-12-08" style="gap: 50px; align-items: center;">
+      <div class="hero-left">
+        <div class="sec-eyebrow" style="color: var(--orange); margin-bottom: 15px;">Who We Are</div>
+        <h1 class="about-hero-title" style="font-family: 'Raleway', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px;">
+          Pioneering the Future of <span style="color: var(--orange);">Virtual Property Search</span>
+        </h1>
+        <p class="about-hero-sub" style="font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 35px; max-width: 620px;">
+          Stackly was established with a singular focus: to make elite technical and academic resources accessible to everyone. Today, we empower over 220k customers around the world.
+        </p>
+        <div class="about-hero-btns" style="display: flex; gap: 15px;">
+          <a href="404.html" class="hbtn-main">📜 Our History Timeline</a>
+          <a href="404.html" class="hbtn-ghost">Meet Directors Board</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="downloaded_images/real-estate-hero.webp" alt="About Hero Image" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); aspect-ratio: 4/3; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY TIMELINE -->
+<section id="story" style="background: var(--light); padding: 90px 0;">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Our Journey</div>
+      <h2 class="sec-title">Stackly <span>Milestones</span></h2>
+      <p class="sec-desc">A timeline of innovation, growth, and customer achievements since our foundation in 2009.</p>
+    </div>
+
+    <div class="timeline">
+      <!-- Item 1 -->
+      <div class="timeline-item left-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2009</div>
+          <h4 style="font-size: 1rem; color: var(--navy); margin-bottom: 8px; font-weight: 700;">Local Foundation</h4>
+          <p style="font-size: 0.8rem; color: var(--gray); line-height: 1.6;">Started as a small local technical tutoring room in Salem, TN with 5 agents and 20 customers.</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="timeline-item right-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2014</div>
+          <h4 style="font-size: 1rem; color: var(--navy); margin-bottom: 8px; font-weight: 700;">Digital Expansion</h4>
+          <p style="font-size: 0.8rem; color: var(--gray); line-height: 1.6;">Launched our online property search catalog, making high-quality lecture videos available to 20K+ users.</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="timeline-item left-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2019</div>
+          <h4 style="font-size: 1rem; color: var(--navy); margin-bottom: 8px; font-weight: 700;">Collaborative Workspaces</h4>
+          <p style="font-size: 0.8rem; color: var(--gray); line-height: 1.6;">Deployed real-time code-editor sandboxes and whiteboards to support peer-to-peer live showrooms.</p>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="timeline-item right-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <h4 style="font-size: 1rem; color: var(--navy); margin-bottom: 8px; font-weight: 700;">AI Diagnosis Engine</h4>
+          <p style="font-size: 0.8rem; color: var(--gray); line-height: 1.6;">Integrated our intelligent customer progress advisor, helping over 220,000 global scholars reach their goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values" style="background: #fff; padding: 100px 0;">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Core Values</div>
+      <h2 class="sec-title">What <span>Guides Us</span></h2>
+      <p class="sec-desc">These core principles dictate every decision we make, every tool we build, and how we support our community.</p>
+    </div>
+
+    <div class="grid-3col" style="gap: 30px; margin-top: 50px;">
+      <!-- Value 1 -->
+      <div class="feat-card" style="padding: 30px; border-radius: 16px;">
+        <div class="feat-icon" style="font-size: 1.5rem; width: 50px; height: 50px; margin-bottom: 18px;">🎯</div>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;">Customer-First Intent</h3>
+        <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.65;">
+          Every features roadmap item and syllabus choice is directly driven by customer feedback and employer job demands.
+        </p>
+      </div>
+
+      <!-- Value 2 -->
+      <div class="feat-card" style="padding: 30px; border-radius: 16px;">
+        <div class="feat-icon" style="font-size: 1.5rem; width: 50px; height: 50px; margin-bottom: 18px;">🛡️</div>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;">Technical Integrity</h3>
+        <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.65;">
+          Our proctored assessments and verified certifications ensure that credentials remain trusted and respected by HR teams.
+        </p>
+      </div>
+
+      <!-- Value 3 -->
+      <div class="feat-card" style="padding: 30px; border-radius: 16px;">
+        <div class="feat-icon" style="font-size: 1.5rem; width: 50px; height: 50px; margin-bottom: 18px;">🌍</div>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;">Inclusion &amp; Access</h3>
+        <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.65;">
+          We offer flexible pricing options, free tracks, and financial scholarships to guarantee that high-quality real estate stays within reach.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH HUBS SECTION -->
+<section id="hubs-section" style="background: #fff; padding: 100px 0; overflow: hidden; border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="grid-split-1-1" style="gap: 60px; align-items: center;">
+      
+      <div class="rv-l">
+        <div class="sec-eyebrow">R&D and Facilities</div>
+        <h2 class="sec-title">Stackly R&D Hubs & <span>Collaboration Spaces</span></h2>
+        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.75; margin-bottom: 25px;">
+          We believe that co-creation drives innovation. Along with our secure virtual campuses, we establish and run physical property search spaces equipped with modern labs, gigabit fiber, and team areas.
+        </p>
+        
+        <div class="grid-split-1-1" style="gap: 20px;">
+          <div style="background: var(--light); border: 1px solid var(--border); padding: 20px; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">🏢</div>
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 6px;">15+ Local Hubs</h4>
+            <p style="font-size: 0.74rem; color: var(--gray); line-height: 1.45;">Interactive physical spaces open daily for local customer study sessions.</p>
+          </div>
+          <div style="background: var(--light); border: 1px solid var(--border); padding: 20px; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">🔬</div>
+            <h4 style="font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 6px;">R&D Lab Grants</h4>
+            <p style="font-size: 0.74rem; color: var(--gray); line-height: 1.45;">Active funding for customer-led software models, libraries, and publications.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="rv-r" style="position: relative;">
+        <div style="background: var(--light); border: 1px solid var(--border); padding: 15px; border-radius: 24px; box-shadow: var(--shadow);">
+          <img src="downloaded_images/real-estate-interior.webp" alt="Customers in Collaboration Space" style="width: 100%; border-radius: 16px; display: block; object-fit: cover; aspect-ratio: 4/3;">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP BOARD -->
+<section id="leadership" style="background: var(--light); padding: 90px 0;">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Our Leadership</div>
+      <h2 class="sec-title">Stackly <span>Directors Board</span></h2>
+      <p class="sec-desc">Meet the real estate leaders, technology architects, and advisors shaping our strategic vision.</p>
+    </div>
+
+    <div class="grid-4col" style="gap: 24px; margin-top: 50px;">
+      <!-- Leader 1 -->
+      <div class="admin-card">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-agent.webp" alt="Marcus Vance" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="tc-info" style="padding: 20px 15px;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Marcus Vance</h4>
+          <p style="font-size: 0.74rem; color: var(--gray); margin-bottom: 4px;">Chief Executive Officer</p>
+          <small style="font-size: 0.68rem; color: var(--orange); font-weight: 600;">Ex-Director, Stanford EdTech</small>
+        </div>
+      </div>
+
+      <!-- Leader 2 -->
+      <div class="admin-card">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-luxury.webp" alt="Dr. Helen Patel" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="tc-info" style="padding: 20px 15px;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Dr. Helen Patel</h4>
+          <p style="font-size: 0.74rem; color: var(--gray); margin-bottom: 4px;">Chief Academic Officer</p>
+          <small style="font-size: 0.68rem; color: var(--orange); font-weight: 600;">Author, "Next-Gen Curriculums"</small>
+        </div>
+      </div>
+
+      <!-- Leader 3 -->
+      <div class="admin-card">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-modern-home.webp" alt="Vikram Iyer" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="tc-info" style="padding: 20px 15px;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Vikram Iyer</h4>
+          <p style="font-size: 0.74rem; color: var(--gray); margin-bottom: 4px;">Head of Platform Architecture</p>
+          <small style="font-size: 0.68rem; color: var(--orange); font-weight: 600;">Ex-Netflix Platform Architect</small>
+        </div>
+      </div>
+
+      <!-- Leader 4 -->
+      <div class="admin-card">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-condo.webp" alt="Clara Dupont" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="tc-info" style="padding: 20px 15px;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;">Clara Dupont</h4>
+          <p style="font-size: 0.74rem; color: var(--gray); margin-bottom: 4px;">Global Community Lead</p>
+          <small style="font-size: 0.68rem; color: var(--orange); font-weight: 600;">Keynote Speaker, EdTech Global</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="fg-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:12px; display:inline-block;">
+          <img src="logo_gold.webp" alt="Stackly Logo" class="footer-logo-img">
+        </a>
+        <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
+        <div class="foot-soc">
+          <a class="fsoc" href="404.html">f</a>
+          <a class="fsoc" href="404.html">in</a>
+          <a class="fsoc" href="404.html">tw</a>
+          <a class="fsoc" href="404.html">yt</a>
+          <a class="fsoc" href="404.html">sk</a>
+        </div>
+      </div>
+      <div class="fg-col">
+        <h4>Property Resources</h4>
+        <ul>
+          <li><a href="404.html">Projects</a></li>
+          <li><a href="404.html">Events</a></li>
+          <li><a href="404.html">Innovations</a></li>
+          <li><a href="404.html">Publications</a></li>
+          <li><a href="404.html">Collaborations</a></li>
+          <li><a href="404.html">Clubs & Activities</a></li>
+        </ul>
+      </div>
+      <div class="fg-col">
+      <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fg-col">
+      <h4>Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li><span class="fc-icon">📍</span> Salem, Tamil Nadu, India</li>
+          <li><span class="fc-icon">📞</span> +91 98765 43210</li>
+          <li><span class="fc-icon">✉️</span> stackly@property searchplatform.com</li>
+          <li><span class="fc-icon">🌐</span> www.stacklyproperty searchplatform.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2024 Stackly. All rights reserved. Interior Readyed with ❤️ in Salem, Tamil Nadu.</p>
+      <div class="foot-links">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Service</a>
+        <a href="404.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== LOADER TRANSITION ===== */
+const logo = document.querySelector('a.nav-logo');
+if (logo) {
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('show');
+      setTimeout(() => {
+        window.location.href = logo.getAttribute('href');
+      }, 1500);
+    } else {
+      window.location.href = logo.getAttribute('href');
+    }
+  });
+}
+
+/* ===== CURSOR ===== */
+const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
+document.querySelectorAll('a,button,.feat-card,.admin-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
+});
+
+/* ===== NAVBAR SCROLL ===== */
+const nb=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nb.classList.toggle('scrolled',scrollY>80);
+  document.getElementById('scrolltop').classList.toggle('show',scrollY>400);
+});
+
+/* ===== MOBILE MENU ===== */
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.add('open');
+  document.body.classList.add('no-scroll');
+  document.documentElement.classList.add('no-scroll');
+});
+document.getElementById('mob-close').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+});
+document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+}));
+
+/* ===== GSAP ABOUT ANIMATIONS ===== */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (typeof gsap !== 'undefined') {
+      gsap.from("#about-hero .sec-eyebrow", { opacity: 0, y: -20, duration: 0.8, ease: "power2.out" });
+      gsap.from(".about-hero-title", { opacity: 0, y: 30, duration: 1, delay: 0.2, ease: "power3.out" });
+      gsap.from(".about-hero-sub", { opacity: 0, y: 20, duration: 1, delay: 0.4, ease: "power2.out" });
+      gsap.from(".about-hero-btns", { opacity: 0, scale: 0.95, duration: 0.8, delay: 0.6, ease: "back.out(1.5)" });
+      gsap.from("#about-hero img", { opacity: 0, x: 40, duration: 1.2, delay: 0.4, ease: "power3.out" });
+      
+      // Animate timeline cards on scroll-reveal placeholder (for simple GSAP animation)
+      gsap.from(".timeline-item", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+    }
+  }, 1500);
+});
+
+/* ===== SCROLL REVEAL ===== */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

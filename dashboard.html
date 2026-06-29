@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Stackly Stackly</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- CURSOR -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <!-- LOADER -->
+  <div id="loader" class="show">
+    <div class="loader-edu-wrapper">
+      <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0d9488" />
+            <stop offset="50%" stop-color="#ff6b35" />
+            <stop offset="100%" stop-color="#ffcc00" />
+          </linearGradient>
+          <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0d9488" stop-opacity="0.1" />
+            <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.1" />
+            <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.1" />
+          </linearGradient>
+        </defs>
+        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+        <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+        <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="ld-logo">
+      <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+    </div>
+    <div class="ld-bar-bg"><div class="ld-bar"></div></div>
+    <div class="ld-words">Syncing portal details...</div>
+  </div>
+
+  <div id="sidebar-backdrop" onclick="toggleSidebar()"></div>
+
+  <div id="dashboard-page">
+    
+    <!-- SIDEBAR -->
+    <aside id="dashboard-sidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-header-row">
+          <a href="index.html" class="sidebar-logo">
+            <img src="logo_gold.webp" alt="Stackly Logo" style="height: 42px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px rgba(248, 184, 14, 0.25));">
+          </a>
+          <button class="btn-sidebar-close" onclick="toggleSidebar()" aria-label="Close Sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        
+        <div>
+          <div class="menu-section-label">Main</div>
+          <ul class="sidebar-menu">
+            <li class="active" id="menu-li-dashboard">
+              <a href="#" onclick="switchTab(event, 'dashboard')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                Dashboard
+              </a>
+            </li>
+            <li id="menu-li-properties">
+              <a href="#" onclick="switchTab(event, 'properties')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span id="label-properties">My Properties</span>
+              </a>
+            </li>
+            <li id="menu-li-schedule">
+              <a href="#" onclick="switchTab(event, 'schedule')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span id="label-schedule">Schedule</span>
+              </a>
+            </li>
+            <li id="menu-li-progress">
+              <a href="#" onclick="switchTab(event, 'progress')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <span id="label-progress">Progress</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="sidebar-bottom">
+        <a href="#" class="btn-logout" onclick="handleLogout(event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <main id="dashboard-main">
+      
+      <!-- HEADER -->
+      <header class="db-header">
+        <div class="header-left">
+          <div class="greeting-wrapper">
+            <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Open Sidebar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <h1 id="greeting-title">Good Morning <span class="wave-hand">👋</span></h1>
+          </div>
+          <p id="greeting-subtitle">Here's what's happening with your property search today.</p>
+        </div>
+        <div class="header-right">
+          <div class="user-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span id="user-display-email">johnbrittoj@thestackly.com</span>
+          </div>
+          <div class="role-badge" id="user-display-role">Customer</div>
+        </div>
+      </header>
+
+      <!-- TAB CONTENT: DASHBOARD -->
+      <div id="tab-dashboard" class="tab-content active-tab">
+        <!-- STATS GRID -->
+        <section class="stats-grid" id="stats-container">
+          <!-- Rendered via JS -->
+        </section>
+
+        <!-- CONTENT SPLIT ROW -->
+        <div class="db-row">
+          <!-- LEFT COLUMN (Properties / Tours list) -->
+          <div class="column-left" id="main-content-left">
+            <!-- Rendered via JS -->
+          </div>
+
+          <!-- RIGHT COLUMN (Calendar widget placeholder) -->
+          <div class="column-right" id="dashboard-cal-container">
+            <!-- Dynamic calendar placement -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB CONTENT: COURSES / CLASSES -->
+      <div id="tab-properties" class="tab-content">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- TAB CONTENT: SCHEDULE / ASSIGNMENTS -->
+      <div id="tab-schedule" class="tab-content">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- TAB CONTENT: PROGRESS / ANALYTICS -->
+      <div id="tab-progress" class="tab-content">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- SHARED STATIC CALENDAR COMPONENT (Moved dynamically between tabs) -->
+      <div id="shared-calendar-widget" style="display: none;">
+        <div class="calendar-card">
+          <div class="calendar-header">
+            <span class="calendar-month" id="calendar-month-name">June 2025</span>
+            <div class="calendar-nav">
+              <button class="calendar-nav-btn" onclick="changeMonth(-1)">◂</button>
+              <button class="calendar-nav-btn" onclick="changeMonth(1)">▸</button>
+            </div>
+          </div>
+          
+          <div class="calendar-grid-weekdays">
+            <span class="weekday-label">Su</span>
+            <span class="weekday-label">Mo</span>
+            <span class="weekday-label">Tu</span>
+            <span class="weekday-label">We</span>
+            <span class="weekday-label">Th</span>
+            <span class="weekday-label">Fr</span>
+            <span class="weekday-label">Sa</span>
+          </div>
+          
+          <div class="calendar-grid-days" id="calendar-days-container">
+            <!-- Rendered via JS -->
+          </div>
+
+          <!-- Calendar Event details panel -->
+          <div class="calendar-events-panel">
+            <div class="panel-header-date" id="selected-date-label">Thursday, June 12, 2025</div>
+            <div class="event-items-list" id="calendar-events-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Global State
+    let currentUser = {
+      email: 'johnbrittoj@thestackly.com',
+      role: 'customer'
+    };
+    
+    // Auth Check
+    const checkAuth = () => {
+      const email = localStorage.getItem('userEmail');
+      const role = localStorage.getItem('userRole');
+      
+      if (!email || !role) {
+        window.location.href = 'login.html';
+        return false;
+      }
+      
+      currentUser.email = email;
+      currentUser.role = role.toLowerCase();
+      return true;
+    };
+
+    if (checkAuth()) {
+      document.addEventListener('DOMContentLoaded', () => {
+        initDashboard();
+        initCursor();
+      });
+    }
+
+    // Dynamic UI data
+    const customerData = {
+      stats: [
+        { label: 'Registered Properties', value: '12', icon: '<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 3 this month', color: 'gold' },
+        { label: 'Completed', value: '7', icon: '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 2 this month', color: 'blue' },
+        { label: 'Hours Explored', value: '48', icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 8h this week', color: 'red' },
+        { label: 'Documents Earned', value: '5', icon: '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 1 new', color: 'orange' }
+      ],
+      properties: [
+        {
+          category: 'Residential',
+          title: 'MERN Stack Web Residential',
+          thumb: 'downloaded_images/real-estate-modern-home.webp',
+          progressText: 'Module 8 of 12',
+          progressPercent: 72
+        },
+        {
+          category: 'Investment',
+          title: 'Machine Property Search with Python',
+          thumb: 'downloaded_images/real-estate-condo.webp',
+          progressText: 'Module 5 of 11',
+          progressPercent: 45
+        }
+      ],
+      calendarEvents: {
+        '2025-5-3': [
+          { time: '02:00 PM', desc: 'MERN Stack Live Session: React Hooks' }
+        ],
+        '2025-5-12': [
+          { time: '10:00 AM', desc: 'Machine Property Search: SVMs & Decisions Trees Workshop' },
+          { time: '11:59 PM', desc: 'HTML/CSS Portfolio Assignment Submission' }
+        ],
+        '2025-5-15': [
+          { time: '04:00 PM', desc: 'Expert Webinar: The Future of generative AI' }
+        ],
+        '2025-5-20': [
+          { time: '01:00 PM', desc: 'MERN Stack Mid-Term Exam Q&A' }
+        ]
+      }
+    };
+
+    const adminData = {
+      stats: [
+        { label: 'Active Tours', value: '6', icon: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 1 this month', color: 'gold' },
+        { label: 'Total Customers', value: '184', icon: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 24 this month', color: 'blue' },
+        { label: 'Hours Taught', value: '120', icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 15h this week', color: 'red' },
+        { label: 'Tasks to Review', value: '18', icon: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>', badge: '9 pending reviews', color: 'orange' }
+      ],
+      properties: [
+        {
+          category: 'Residential',
+          title: 'Advanced Full Stack Residential',
+          thumb: 'downloaded_images/real-estate-modern-home.webp',
+          metaLeft: '45 Happy Customers',
+          metaRight: 'Next Tour: 11:30 AM'
+        },
+        {
+          category: 'Investment',
+          title: 'Deep Property Search & Natural Rental Processing',
+          thumb: 'downloaded_images/real-estate-condo.webp',
+          metaLeft: '32 Happy Customers',
+          metaRight: 'Next Tour: Tomorrow'
+        }
+      ],
+      submissions: [
+        { customer: 'John Doe', task: 'MERN Stack Lab 3 - MongoDB Queries', time: '10 mins ago' },
+        { customer: 'Jane Smith', task: 'ML Quiz 2 - Gradient Descent Calculations', time: '1 hour ago' },
+        { customer: 'Alex Mercer', task: 'React Native - Bottom Navigation Setup', time: '3 hours ago' }
+      ],
+      calendarEvents: {
+        '2025-5-3': [
+          { time: '02:00 PM', desc: 'Lecture: React State Hooks & Context API' }
+        ],
+        '2025-5-12': [
+          { time: '09:00 AM', desc: 'Stackly Curriculum Review Board' },
+          { time: '10:00 AM', desc: 'Lecture: Deep Property Search - Backpropagation' }
+        ],
+        '2025-5-15': [
+          { time: '05:00 PM', desc: 'Grading Deadline: MERN Portfolio Milestones' }
+        ],
+        '2025-5-20': [
+          { time: '01:00 PM', desc: 'Office Hours / Customer Consultation' }
+        ]
+      }
+    };
+
+    // Calendar state
+    let calYear = 2025;
+    let calMonth = 5; // June (0-indexed)
+    let selectedDay = 12; // Start with June 12 active
+
+    const initDashboard = () => {
+      // Set email and role badges
+      document.getElementById('user-display-email').innerText = currentUser.email;
+      document.getElementById('user-display-role').innerText = currentUser.role;
+      
+      // Update sidebar labels if admin
+      if (currentUser.role === 'admin') {
+        document.getElementById('label-properties').innerText = 'My Tours';
+        document.getElementById('label-schedule').innerText = 'Assignments';
+        document.getElementById('label-progress').innerText = 'Analytics';
+      }
+
+      // Set greeting
+      const now = new Date();
+      const hrs = now.getHours();
+      let greeting = 'Good Morning';
+      let wave = '👋';
+      
+      if (hrs >= 12 && hrs < 17) {
+        greeting = 'Good Afternoon';
+        wave = '☀️';
+      } else if (hrs >= 17) {
+        greeting = 'Good Evening';
+        wave = '🌙';
+      }
+      
+      document.getElementById('greeting-title').innerHTML = `${greeting} <span class="wave-hand">${wave}</span>`;
+      
+      // Initial render is dashboard overview
+      switchTab(null, 'dashboard');
+      
+      // Fade out loader
+      setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) loader.classList.remove('show');
+      }, 500);
+    };
+
+    // TAB SWITCH ENGINE
+    const switchTab = (e, tabName) => {
+      if (e) e.preventDefault();
+      
+      // Close mobile sidebar
+      const sidebar = document.getElementById('dashboard-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+      if (sidebar) sidebar.classList.remove('mobile-open');
+      if (backdrop) backdrop.classList.remove('visible');
+      
+      // Toggle active tour on sidebar menu items
+      document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
+      const clickedLi = document.getElementById(`menu-li-${tabName}`);
+      if (clickedLi) clickedLi.classList.add('active');
+      
+      // Change Subtitle
+      const subtitle = document.getElementById('greeting-subtitle');
+      if (tabName === 'dashboard') {
+        subtitle.innerText = currentUser.role === 'admin' 
+          ? "Here's what's happening with your teaching today." 
+          : "Here's what's happening with your property search today.";
+      } else if (tabName === 'properties') {
+        subtitle.innerText = currentUser.role === 'admin' ? "Manage and start lecture sessions." : "Browse and resume your active properties.";
+      } else if (tabName === 'schedule') {
+        subtitle.innerText = currentUser.role === 'admin' ? "Review customer task submissions." : "Check your upcoming lectures and deadlines.";
+      } else if (tabName === 'progress') {
+        subtitle.innerText = currentUser.role === 'admin' ? "Performance charts and help indicators." : "Review grades, attendance, and documents.";
+      }
+
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(tc => {
+        tc.style.display = 'none';
+        tc.classList.remove('active-tab');
+      });
+      
+      // Show target tab content
+      const targetTab = document.getElementById(`tab-${tabName}`);
+      if (targetTab) {
+        targetTab.style.display = 'block';
+        targetTab.classList.add('active-tab');
+      }
+      
+      // Trigger tab-specific render
+      renderTabContent(tabName);
+      
+      // Re-init cursor hovers
+      initCursorHovers();
+    };
+
+    const renderTabContent = (tabName) => {
+      if (tabName === 'dashboard') {
+        renderStats();
+        renderLeftColumn();
+        
+        // Move calendar into dashboard
+        const cal = document.getElementById('shared-calendar-widget');
+        const dest = document.getElementById('dashboard-cal-container');
+        if (cal && dest) {
+          dest.appendChild(cal);
+          cal.style.display = 'block';
+        }
+        
+        renderCalendar(calYear, calMonth);
+        renderEvents(calYear, calMonth, selectedDay);
+        
+      } else if (tabName === 'properties') {
+        renderPropertiesTab();
+      } else if (tabName === 'schedule') {
+        renderScheduleTab();
+        
+        // Move calendar into schedule tab
+        const cal = document.getElementById('shared-calendar-widget');
+        const dest = document.getElementById('schedule-tab-cal-container');
+        if (cal && dest) {
+          dest.appendChild(cal);
+          cal.style.display = 'block';
+        }
+        
+        renderCalendar(calYear, calMonth);
+        renderEvents(calYear, calMonth, selectedDay);
+        
+      } else if (tabName === 'progress') {
+        renderProgressTab();
+      }
+    };
+
+    // RENDER OVERVIEW STATS
+    const renderStats = () => {
+      const container = document.getElementById('stats-container');
+      container.innerHTML = '';
+      const list = currentUser.role === 'admin' ? adminData.stats : customerData.stats;
+      
+      list.forEach(item => {
+        const card = document.createElement('div');
+        card.className = `stat-card ${item.color}`;
+        
+        card.innerHTML = `
+          <div class="stat-icon-wrap">${item.icon}</div>
+          <div class="stat-value">${item.value}</div>
+          <div class="stat-label">${item.label}</div>
+          <div class="stat-badge">${item.badge}</div>
+        `;
+        container.appendChild(card);
+      });
+    };
+
+    // RENDER OVERVIEW LEFT COLUMN
+    const renderLeftColumn = () => {
+      const container = document.getElementById('main-content-left');
+      container.innerHTML = '';
+      
+      if (currentUser.role === 'admin') {
+        // Admin View: My Tours + Customer Submissions
+        const toursCard = document.createElement('div');
+        toursCard.className = 'section-card';
+        
+        let toursHtml = `
+          <div class="section-header">
+            <h3 class="section-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>
+              My Active Tours
+            </h3>
+            <a href="#" class="section-link" onclick="switchTab(event, 'properties')">View All</a>
+          </div>
+          <div class="property-list">
+        `;
+        
+        adminData.properties.forEach(c => {
+          toursHtml += `
+            <div class="property-item">
+              <div class="property-thumb">
+                <img src="${c.thumb}" alt="${c.title}">
+                <div class="property-thumb-overlay"></div>
+              </div>
+              <div class="property-details">
+                <div class="property-category">${c.category}</div>
+                <h4>${c.title}</h4>
+                <div class="admin-meta-row">
+                  <div class="admin-meta-item">
+                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    ${c.metaLeft}
+                  </div>
+                  <div class="admin-meta-badge">${c.metaRight}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        
+        toursHtml += `</div>`;
+        toursCard.innerHTML = toursHtml;
+        container.appendChild(toursCard);
+
+        const subCard = document.createElement('div');
+        subCard.className = 'section-card';
+        
+        let subHtml = `
+          <div class="section-header">
+            <h3 class="section-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Pending Submissions
+            </h3>
+            <a href="#" class="section-link" onclick="switchTab(event, 'schedule')">Review Queue</a>
+          </div>
+          <div class="submissions-list">
+        `;
+        
+        adminData.submissions.slice(0, 2).forEach(sub => {
+          subHtml += `
+            <div class="submission-item">
+              <div class="sub-left">
+                <span class="sub-customer-name">${sub.customer}</span>
+                <span class="sub-task-title">${sub.task}</span>
+              </div>
+              <div class="sub-right">
+                <span class="sub-time">${sub.time}</span>
+                <button class="btn-grade" onclick="location.href='404.html';">Grade</button>
+              </div>
+            </div>
+          `;
+        });
+        
+        subHtml += `</div>`;
+        subCard.innerHTML = subHtml;
+        container.appendChild(subCard);
+        
+      } else {
+        // Customer View: Continue Property Search
+        const card = document.createElement('div');
+        card.className = 'section-card';
+        
+        let propertiesHtml = `
+          <div class="section-header">
+            <h3 class="section-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              Continue Property Search
+            </h3>
+            <a href="#" class="section-link" onclick="switchTab(event, 'properties')">View All</a>
+          </div>
+          <div class="property-list">
+        `;
+        
+        customerData.properties.forEach(c => {
+          propertiesHtml += `
+            <div class="property-item">
+              <div class="property-thumb">
+                <img src="${c.thumb}" alt="${c.title}">
+                <div class="property-thumb-overlay"></div>
+              </div>
+              <div class="property-details">
+                <div class="property-category">${c.category}</div>
+                <h4>${c.title}</h4>
+                <div class="property-progress-container">
+                  <span class="property-progress-text">${c.progressText}</span>
+                  <div class="property-progress-bar-bg">
+                    <div class="property-progress-bar" style="width: ${c.progressPercent}%"></div>
+                  </div>
+                  <span class="property-percent">${c.progressPercent}%</span>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        
+        propertiesHtml += `</div>`;
+        card.innerHTML = propertiesHtml;
+        container.appendChild(card);
+      }
+    };
+
+    // RENDER TAB: COURSES / CLASSES
+    const renderPropertiesTab = () => {
+      const container = document.getElementById('tab-properties');
+      container.innerHTML = '';
+      
+      if (currentUser.role === 'admin') {
+        // Admin Tours View
+        container.innerHTML = `
+          <div class="section-card">
+            <div class="section-header">
+              <h3 class="section-title">My Active Lectures</h3>
+            </div>
+            <div class="properties-grid">
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-modern-home.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Residential</div>
+                  <h3>Advanced Full Stack Residential</h3>
+                  <p class="property-instructor">Registered: 45 Customers | Room: 102</p>
+                  <div class="property-detail-footer">
+                    <span>Next Tour: 11:30 AM Today</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Start Lecture</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-condo.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Investment</div>
+                  <h3>Deep Property Search & NLP Masterclass</h3>
+                  <p class="property-instructor">Registered: 32 Customers | Lab: B</p>
+                  <div class="property-detail-footer">
+                    <span>Next Tour: Tomorrow 10:00 AM</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Start Lecture</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-listing.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Databases</div>
+                  <h3>Database Management Systems</h3>
+                  <p class="property-instructor">Registered: 54 Customers | Room: Seminar Hall</p>
+                  <div class="property-detail-footer">
+                    <span>Next Tour: Friday 2:00 PM</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Start Lecture</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // Customer Properties View
+        container.innerHTML = `
+          <div class="section-card">
+            <div class="section-header">
+              <h3 class="section-title">My Registered Properties</h3>
+            </div>
+            <div class="properties-grid">
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-modern-home.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Residential</div>
+                  <h3>MERN Stack Web Residential</h3>
+                  <p class="property-instructor">Instructor: Dr. John Britto</p>
+                  <div class="property-detail-progress">
+                    <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:72%"></div></div>
+                    <span>72%</span>
+                  </div>
+                  <div class="property-detail-footer">
+                    <span>8 of 12 modules completed</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Resume Property</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-condo.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Investment</div>
+                  <h3>Machine Property Search with Python</h3>
+                  <p class="property-instructor">Instructor: Prof. Alan Turing</p>
+                  <div class="property-detail-progress">
+                    <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:45%"></div></div>
+                    <span>45%</span>
+                  </div>
+                  <div class="property-detail-footer">
+                    <span>5 of 11 modules completed</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Resume Property</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-listing.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Interior Ready</div>
+                  <h3>UI/UX Interior Ready Masterclass</h3>
+                  <p class="property-instructor">Instructor: Sarah Connor</p>
+                  <div class="property-detail-progress">
+                    <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:90%"></div></div>
+                    <span>90%</span>
+                  </div>
+                  <div class="property-detail-footer">
+                    <span>9 of 10 modules completed</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Resume Property</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="property-detail-card">
+                <div class="property-detail-thumb">
+                  <img src="downloaded_images/real-estate-listing.webp" alt="Property Thumbnail">
+                </div>
+                <div class="property-detail-body">
+                  <div class="property-detail-cat">Databases</div>
+                  <h3>SQL & Relational Databases</h3>
+                  <p class="property-instructor">Instructor: Grace Hopper</p>
+                  <div class="property-detail-progress">
+                    <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:15%"></div></div>
+                    <span>15%</span>
+                  </div>
+                  <div class="property-detail-footer">
+                    <span>2 of 12 modules completed</span>
+                    <button class="btn-primary-db" onclick="location.href='404.html';">Resume Property</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    };
+
+    // RENDER TAB: SCHEDULE / ASSIGNMENTS
+    const renderScheduleTab = () => {
+      const container = document.getElementById('tab-schedule');
+      container.innerHTML = '';
+      
+      if (currentUser.role === 'admin') {
+        // Admin Assignments Queue View
+        container.innerHTML = `
+          <div class="schedule-tab-layout">
+            <div class="schedule-left">
+              <h2>Submissions Pending Review</h2>
+              <div class="assignments-table-card">
+                <table class="db-table">
+                  <thead>
+                    <tr>
+                      <th>Customer Name</th>
+                      <th>Assignment</th>
+                      <th>Submitted</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>John Doe</td>
+                      <td>MERN Stack Lab 3 - MongoDB Queries</td>
+                      <td>10 mins ago</td>
+                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
+                    </tr>
+                    <tr>
+                      <td>Jane Smith</td>
+                      <td>ML Quiz 2 - Gradient Descent Calculations</td>
+                      <td>1 hour ago</td>
+                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
+                    </tr>
+                    <tr>
+                      <td>Alex Mercer</td>
+                      <td>React Native - Bottom Navigation Setup</td>
+                      <td>3 hours ago</td>
+                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
+                    </tr>
+                    <tr>
+                      <td>David Lightman</td>
+                      <td>Cyber Security basics - WOPR Access logs</td>
+                      <td>Yesterday</td>
+                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
+                    </tr>
+                    <tr>
+                      <td>Sophia Watson</td>
+                      <td>SQL Lab 1 - Select Statements</td>
+                      <td>2 days ago</td>
+                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="schedule-right" id="schedule-tab-cal-container">
+              <!-- Calendar widget goes here -->
+            </div>
+          </div>
+        `;
+      } else {
+        // Customer Schedule Timeline View
+        container.innerHTML = `
+          <div class="schedule-tab-layout">
+            <div class="schedule-left">
+              <h2>Academic Timeline</h2>
+              <div class="timeline-container">
+                <div class="timeline-item">
+                  <div class="timeline-badge today">Today</div>
+                  <div class="timeline-content">
+                    <h4>02:00 PM - MERN Stack Live Session</h4>
+                    <p>Topic: React Hooks, Custom Hooks, and Context API. Join the zoom portal.</p>
+                    <button class="btn-timeline" onclick="alert('Joining Zoom portal meeting...');">Join Live Tour</button>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-badge deadline">June 13</div>
+                  <div class="timeline-content">
+                    <h4>11:59 PM - HTML/CSS Portfolio Assignment</h4>
+                    <p>Deadline for submitting your responsive HTML/CSS web layout project.</p>
+                    <button class="btn-timeline secondary" onclick="alert('Launching assignment submission window...');">Submit Assignment</button>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-badge upcoming">June 15</div>
+                  <div class="timeline-content">
+                    <h4>04:00 PM - Expert Guest Webinar</h4>
+                    <p>Topic: Generative AI in Web Residential. Guest Speaker: Sam Altman.</p>
+                    <button class="btn-timeline" onclick="alert('Registering/Joining Webinar...');">Enter Webinar</button>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-badge upcoming">June 20</div>
+                  <div class="timeline-content">
+                    <h4>01:00 PM - MERN Stack Mid-Term Review</h4>
+                    <p>Live session to review exam topics, curriculum parameters, and mock test solutions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="schedule-right" id="schedule-tab-cal-container">
+              <!-- Calendar widget goes here -->
+            </div>
+          </div>
+        `;
+      }
+    };
+
+    // RENDER TAB: PROGRESS / ANALYTICS
+    const renderProgressTab = () => {
+      const container = document.getElementById('tab-progress');
+      container.innerHTML = '';
+      
+      if (currentUser.role === 'admin') {
+        // Admin Analytics View
+        container.innerHTML = `
+          <div class="progress-tab-layout">
+            <div class="progress-left">
+              <h2>Teaching Performance Analytics</h2>
+              
+              <div class="performance-grid">
+                <div class="perf-card">
+                  <span class="perf-title">Average Tour Score</span>
+                  <span class="perf-val">84%</span>
+                </div>
+                <div class="perf-card">
+                  <span class="perf-title">Average Attendance</span>
+                  <span class="perf-val">92%</span>
+                </div>
+                <div class="perf-card">
+                  <span class="perf-title">Property Completion</span>
+                  <span class="perf-val">78%</span>
+                </div>
+              </div>
+              
+              <div class="grades-card">
+                <h3>Tour Progress Levels</h3>
+                <div class="grade-row">
+                  <span>Advanced Full Stack Residential</span>
+                  <div class="grade-bar-container"><div class="grade-bar" style="width:82%"></div></div>
+                  <span>82% Complete</span>
+                </div>
+                <div class="grade-row">
+                  <span>Deep Property Search & NLP Masterclass</span>
+                  <div class="grade-bar-container"><div class="grade-bar" style="width:65%"></div></div>
+                  <span>65% Complete</span>
+                </div>
+                <div class="grade-row">
+                  <span>Database Management Systems</span>
+                  <div class="grade-bar-container"><div class="grade-bar" style="width:90%"></div></div>
+                  <span>90% Complete</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="progress-right">
+              <h2>Customer Alerts (Needs Help)</h2>
+              <div class="documents-list">
+                <div class="alert-customer-item">
+                  <div class="alert-icon">⚠️</div>
+                  <div class="alert-customer-details">
+                    <h4>David Miller</h4>
+                    <span>Progress: 35% | Midterm Score: 52%</span>
+                  </div>
+                  <button class="btn-contact-customer" onclick="location.href='404.html';">Contact</button>
+                </div>
+                <div class="alert-customer-item">
+                  <div class="alert-icon">⚠️</div>
+                  <div class="alert-customer-details">
+                    <h4>Sophia Watson</h4>
+                    <span>Progress: 40% | Attendance: 68%</span>
+                  </div>
+                  <button class="btn-contact-customer" onclick="location.href='404.html';">Contact</button>
+                </div>
+                <div class="alert-customer-item">
+                  <div class="alert-icon">⚠️</div>
+                  <div class="alert-customer-details">
+                    <h4>Alex Mercer</h4>
+                    <span>Progress: 48% | Unexcused Absences: 3</span>
+                  </div>
+                  <button class="btn-contact-customer" onclick="location.href='404.html';">Contact</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // Customer Progress View
+        container.innerHTML = `
+          <div class="progress-tab-layout">
+            <div class="progress-left">
+              <h2>Academic Performance</h2>
+              
+              <div class="performance-grid">
+                <div class="perf-card">
+                  <span class="perf-title">Cumulative GPA</span>
+                  <span class="perf-val">3.8 / 4.0</span>
+                </div>
+                <div class="perf-card">
+                  <span class="perf-title">Attendance Rate</span>
+                  <span class="perf-val">96%</span>
+                </div>
+                <div class="perf-card">
+                  <span class="perf-title">Hours Studied</span>
+                  <span class="perf-val">48 hrs</span>
+                </div>
+              </div>
+              
+              <div class="grades-card">
+                <h3>Property Performance</h3>
+                <div class="grade-row">
+                  <span>MERN Stack Web Residential</span>
+                  <div class="grade-bar-container"><div class="grade-bar" style="width:88%"></div></div>
+                  <span>88% (A)</span>
+                </div>
+                <div class="grade-row">
+                  <span>Machine Property Search with Python</span>
+                  <div class="grade-bar-container"><div class="grade-bar" style="width:74%"></div></div>
+                  <span>74% (B)</span>
+                </div>
+                <div class="grade-row">
+                  <span>UI/UX Interior Ready Masterclass</span>
+                  <div class="grade-bar-container"><div class="grade-bar" style="width:95%"></div></div>
+                  <span>95% (A+)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="progress-right">
+              <h2>My Documents</h2>
+              <div class="documents-list">
+                <div class="cert-item">
+                  <div class="cert-icon">🎓</div>
+                  <div class="cert-details">
+                    <h4>Responsive Web Interior Ready</h4>
+                    <span>Completed: May 2025</span>
+                  </div>
+                  <button class="btn-download-cert" onclick="location.href='404.html';">Download</button>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-icon">🎓</div>
+                  <div class="cert-details">
+                    <h4>JavaScript Algorithms & Structures</h4>
+                    <span>Completed: April 2025</span>
+                  </div>
+                  <button class="btn-download-cert" onclick="location.href='404.html';">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    };
+
+    // CALENDAR LOGIC
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
+    const getFirstDayIndex = (year, month) => new Date(year, month, 1).getDay();
+
+    const renderCalendar = (year, month) => {
+      const container = document.getElementById('calendar-days-container');
+      container.innerHTML = '';
+      
+      document.getElementById('calendar-month-name').innerText = `${monthNames[month]} ${year}`;
+      
+      const totalDays = getDaysInMonth(year, month);
+      const firstDayIdx = getFirstDayIndex(year, month);
+      
+      const activeEvents = currentUser.role === 'admin' ? adminData.calendarEvents : customerData.calendarEvents;
+      
+      // Leading slots
+      const prevMonth = month === 0 ? 11 : month - 1;
+      const prevYear = month === 0 ? year - 1 : year;
+      const prevMonthDays = getDaysInMonth(prevYear, prevMonth);
+      
+      for (let i = firstDayIdx - 1; i >= 0; i--) {
+        const cell = document.createElement('span');
+        cell.className = 'day-cell other-month';
+        cell.innerText = prevMonthDays - i;
+        container.appendChild(cell);
+      }
+      
+      // Current Month Days
+      for (let day = 1; day <= totalDays; day++) {
+        const cell = document.createElement('span');
+        cell.className = 'day-cell';
+        cell.innerText = day;
+        
+        const dateKey = `${year}-${month}-${day}`;
+        
+        if (activeEvents[dateKey] && activeEvents[dateKey].length > 0) {
+          cell.classList.add('has-event');
+        }
+        
+        if (day === selectedDay) {
+          cell.classList.add('active-day');
+        }
+        
+        cell.addEventListener('click', () => {
+          selectedDay = day;
+          document.querySelectorAll('.day-cell').forEach(c => c.classList.remove('active-day'));
+          cell.classList.add('active-day');
+          renderEvents(year, month, day);
+        });
+        
+        container.appendChild(cell);
+      }
+    };
+
+    const changeMonth = (dir) => {
+      calMonth += dir;
+      if (calMonth < 0) {
+        calMonth = 11;
+        calYear -= 1;
+      } else if (calMonth > 11) {
+        calMonth = 0;
+        calYear += 1;
+      }
+      selectedDay = 1;
+      renderCalendar(calYear, calMonth);
+      renderEvents(calYear, calMonth, selectedDay);
+    };
+
+    const renderEvents = (year, month, day) => {
+      const activeEvents = currentUser.role === 'admin' ? adminData.calendarEvents : customerData.calendarEvents;
+      const dateKey = `${year}-${month}-${day}`;
+      const dayEvents = activeEvents[dateKey] || [];
+      
+      const dateObj = new Date(year, month, day);
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('selected-date-label').innerText = dateObj.toLocaleDateString('en-US', options);
+      
+      const listContainer = document.getElementById('calendar-events-list');
+      listContainer.innerHTML = '';
+      
+      if (dayEvents.length === 0) {
+        listContainer.innerHTML = '<span class="no-events-text">No tours or reviews scheduled for this day.</span>';
+      } else {
+        dayEvents.forEach(evt => {
+          const item = document.createElement('div');
+          item.className = 'event-item-desc';
+          item.innerHTML = `
+            <div class="event-time">${evt.time}</div>
+            <div class="event-text">${evt.desc}</div>
+          `;
+          listContainer.appendChild(item);
+        });
+      }
+    };
+
+    // LOGOUT ACTION
+    const handleLogout = (e) => {
+      e.preventDefault();
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.querySelector('.ld-words').innerText = "Logging out...";
+        loader.classList.add('show');
+      }
+      
+      setTimeout(() => {
+        localStorage.clear();
+        window.location.href = 'login.html';
+      }, 1200);
+    };
+
+    // CUSTOM CURSOR HOVERS
+    const initCursorHovers = () => {
+      const cr = document.getElementById('cur-ring');
+      if (!cr) return;
+      document.querySelectorAll('a, button, .day-cell, .calendar-nav-btn, .btn-grade, .btn-timeline, .btn-primary-db, .btn-download-cert, .btn-contact-customer').forEach(el => {
+        el.addEventListener('mouseenter', () => cr.classList.add('big'));
+        el.addEventListener('mouseleave', () => cr.classList.remove('big'));
+      });
+    };
+
+    // CUSTOM CURSOR INITIALIZER
+    const initCursor = () => {
+      const cd = document.getElementById('cur-dot');
+      const cr = document.getElementById('cur-ring');
+      if (!cd || !cr) return;
+
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX;
+        my = e.clientY;
+      });
+      
+      (function animateCursor() {
+        cd.style.left = mx + 'px';
+        cd.style.top = my + 'px';
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        cr.style.left = rx + 'px';
+        cr.style.top = ry + 'px';
+        requestAnimationFrame(animateCursor);
+      })();
+
+      initCursorHovers();
+    };
+
+    const toggleSidebar = () => {
+      const sidebar = document.getElementById('dashboard-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+      if (sidebar && backdrop) {
+        const isOpen = sidebar.classList.toggle('mobile-open');
+        if (isOpen) {
+          backdrop.classList.add('visible');
+        } else {
+          backdrop.classList.remove('visible');
+        }
+      }
+    };
+  </script>
+</body>
+</html>

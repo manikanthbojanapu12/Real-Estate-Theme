@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly – Find Your Next Home With Confidence</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-edu-wrapper">
+    <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" />
+          <stop offset="50%" stop-color="#ff6b35" />
+          <stop offset="100%" stop-color="#ffcc00" />
+        </linearGradient>
+        <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="ld-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+  </div>
+  <div class="ld-bar-bg"><div class="ld-bar"></div></div>
+  <div class="ld-words">Loading your future...</div>
+</div>
+
+<!-- SCROLL TOP -->
+<div id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+
+
+<!-- NAVBAR -->
+<nav id="navbar" >
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo_gold.webp" alt="Stackly Logo" class="nav-logo-img">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login" onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='signup.html'">Sign Up</button>
+    </div>
+    <div class="hamburger" id="ham">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <span id="mob-close">✕</span>
+  <div class="mob-menu-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" style="height: 48px; object-fit: contain;">
+  </div>
+  <div class="mob-menu-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="mob-menu-actions">
+    <a href="login.html" class="mob-menu-btn secondary">Login</a>
+    <a href="signup.html" class="mob-menu-btn">Sign Up</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section id="hero">
+  <div class="hero-video-container">
+    <div class="video-overlay"></div>
+    <video class="hero-video active" src="videos/video1.mp4" autoplay loop muted playsinline preload="auto"></video>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge rv" id="hero-badge"><span class="badge-pulse"></span><span class="badge-text">Trusted By Home Buyers And Sellers</span></div>
+        <h1 class="rv d1" id="hero-title">Real Estate<br><span class="hl">Made Simple</span><br>For You</h1>
+        <p class="hero-sub rv d2" id="hero-sub">We help customers discover verified homes, compare neighborhoods, schedule tours, and close deals with a trusted real estate team.</p>
+        <div class="hero-btns rv d3">
+          <a href="404.html" class="hbtn-main">🚀 View Properties</a>
+          <a href="404.html" class="hbtn-ghost"><span class="play-wrap">▶</span> Watch Tour</a>
+        </div>
+        <div class="hero-stats rv d4">
+          <div>
+            <div class="hstat-num">440<em>+</em></div>
+            <div class="hstat-label">Active Listings</div>
+          </div>
+          <div>
+            <div class="hstat-num">220<em>K</em></div>
+            <div class="hstat-label">Happy Customers</div>
+          </div>
+          <div>
+            <div class="hstat-num">117<em>+</em></div>
+            <div class="hstat-label">Local Agents</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FEATURES / WELCOME -->
+<!-- ============================================================ -->
+<section id="features">
+  <div class="container">
+    <div class="features-intro">
+      <div class="fi-img-wrap rv-l">
+        <img src="downloaded_images/real-estate-hero.webp" alt="Welcome to Stackly Realty">
+        <div class="fi-badge">
+          <div class="num">15+</div>
+          <div class="lbl">Years of Excellence</div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div class="sec-eyebrow">Welcome to Stackly Realty</div>
+        <h2 class="sec-title">Smarter Moves<br>for <span>Customers</span></h2>
+        <p style="color:var(--gray);font-size:.9rem;line-height:1.75;margin-bottom:8px;">Stackly has been specially designed as the perfect real estate platform for your property search center. Whether you specialize in local workshops or online properties — free or paid — Stackly is the only platform you need.</p>
+        <p style="color:var(--gray);font-size:.9rem;line-height:1.75;">Based on real market workflows, we provide practical tools that help customers compare homes, understand pricing, and move forward with confidence.</p>
+        <ul class="fi-list">
+          <li><span class="fi-check">✓</span>440+ verified properties across apartments, villas, plots, and commercial spaces</li>
+          <li><span class="fi-check">✓</span>Licensed agents with 10+ years of local transaction experience</li>
+          <li><span class="fi-check">✓</span>Transparent listing details, price updates, and neighborhood insights</li>
+          <li><span class="fi-check">✓</span>Flexible in-person and virtual tours that fit your schedule</li>
+        </ul>
+        <a href="404.html" class="hbtn-main" style="display:inline-flex;width:fit-content;">Explore All Properties →</a>
+      </div>
+    </div>
+
+    <!-- 3 feature cards -->
+    <div class="features-grid">
+      <div class="feat-card rv d1">
+        <div class="feat-img">
+          <img src="downloaded_images/real-estate-interior.webp" alt="Browse Verified Listings">
+          <div class="feat-badge">📚</div>
+        </div>
+        <h3>Browse Verified Listings</h3>
+        <p>Explore homes, apartments, villas, plots, and commercial spaces with clear pricing, photos, amenities, and availability.</p>
+      </div>
+      <div class="feat-card rv d2">
+        <div class="feat-img">
+          <img src="downloaded_images/real-estate-exterior.webp" alt="Schedule Property Tours">
+          <div class="feat-badge">🏛️</div>
+        </div>
+        <h3>Schedule Property Tours</h3>
+        <p>Book guided site visits or virtual walkthroughs, then keep every viewing, note, and follow-up in one simple dashboard.</p>
+      </div>
+      <div class="feat-card rv d3">
+        <div class="feat-img">
+          <img src="downloaded_images/real-estate-listing.webp" alt="Deal Support Included">
+          <div class="feat-badge">🎯</div>
+        </div>
+        <h3>Deal Support Included</h3>
+        <p>From beginner fundamentals to advanced masterclasss — we have structured property search paths designed to take you from zero to job-ready in record time.</p>
+      </div>
+      <div class="feat-card rv d1">
+        <div class="feat-img">
+          <img src="downloaded_images/real-estate-living.webp" alt="AI-Powered Matching">
+          <div class="feat-badge">🤖</div>
+        </div>
+        <h3>AI-Powered Matching</h3>
+        <p>Our recommendation engine explores your budget, location, commute, and lifestyle preferences to surface better property matches.</p>
+      </div>
+      <div class="feat-card rv d2">
+        <div class="feat-img">
+          <img src="downloaded_images/real-estate-agent.webp" alt="Search Anywhere">
+          <div class="feat-badge">📱</div>
+        </div>
+        <h3>Search Anywhere</h3>
+        <p>Review listings on desktop, tablet, or mobile. Save favorites, compare amenities, and request tours wherever you are.</p>
+      </div>
+      <div class="feat-card rv d3">
+        <div class="feat-img">
+          <img src="downloaded_images/real-estate-kitchen.webp" alt="Verified Excellence">
+          <div class="feat-badge">🏆</div>
+        </div>
+        <h3>Verified Excellence</h3>
+        <p>Every featured listing is checked for key details, documents, location accuracy, and agent availability before it reaches you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- COURSES -->
+<!-- ============================================================ -->
+<section id="properties">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Featured Properties</div>
+      <h2 class="sec-title">Explore Our <span>Top Properties</span></h2>
+      <p class="sec-desc">Handpicked by our experts — these properties are designed to take you from beginner to professional level with real-world projects.</p>
+    </div>
+    <div class="properties-tabs rv">
+      <button class="ctab active">All Properties</button>
+      <button class="ctab">Residential</button>
+      <button class="ctab">Interior Ready</button>
+      <button class="ctab">Investment</button>
+      <button class="ctab">Commercial</button>
+      <button class="ctab">Luxury</button>
+    </div>
+    <div class="properties-grid">
+      <div class="property-card rv d1">
+        <div class="cc-img">
+          <img src="downloaded_images/real-estate-modern-home.webp" alt="Web Dev">
+          <span class="cc-label">Residential</span>
+          <span class="cc-price">FREE</span>
+          <div class="cc-overlay"></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-title">Web Residential Properties — Full Stack Bootcamp 2024</div>
+          <div class="cc-meta">
+            <span>🕐 4 Beds</span>
+            <span>👥 18.4K</span>
+            <span>📅 Feb 16</span>
+          </div>
+          <div class="cc-foot">
+            <div class="cc-tutor">
+              <img src="downloaded_images/a1.webp" alt="">
+              <span>Alex Turner</span>
+            </div>
+            <div class="cc-rating"><span class="cc-stars">★</span>4.9 (3.2K)</div>
+          </div>
+          <button class="cc-btn" type="button" onclick="location.href='404.html'">Book Tour →</button>
+        </div>
+      </div>
+      <div class="property-card rv d2">
+        <div class="cc-img">
+          <img src="downloaded_images/real-estate-condo.webp" alt="German">
+          <span class="cc-label">Rental</span>
+          <span class="cc-price">$25 <s style="font-size:.7rem;opacity:.6">$30</s></span>
+          <div class="cc-overlay"></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-title">Explore Basic German Fast — Complete Rental Mastery</div>
+          <div class="cc-meta">
+            <span>🕐 2 Beds</span>
+            <span>👥 9.8K</span>
+            <span>📅 Feb 16</span>
+          </div>
+          <div class="cc-foot">
+            <div class="cc-tutor">
+              <img src="downloaded_images/a2.webp" alt="">
+              <span>Dr. Sarah Chen</span>
+            </div>
+            <div class="cc-rating"><span class="cc-stars">★</span>4.8 (2.1K)</div>
+          </div>
+          <button class="cc-btn" type="button" onclick="location.href='404.html'">Book Tour →</button>
+        </div>
+      </div>
+      <div class="property-card rv d3">
+        <div class="cc-img">
+          <img src="downloaded_images/real-estate-interior.webp" alt="Interior Ready">
+          <span class="cc-label">Interior Ready</span>
+          <span class="cc-price">FREE</span>
+          <div class="cc-overlay"></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-title">UI/UX Interior Ready Mastery — From Wireframes to Prototypes</div>
+          <div class="cc-meta">
+            <span>🕐 3 Beds</span>
+            <span>👥 11.5K</span>
+            <span>📅 Feb 16</span>
+          </div>
+          <div class="cc-foot">
+            <div class="cc-tutor">
+              <img src="downloaded_images/w5.webp" alt="">
+              <span>Priya Nair</span>
+            </div>
+            <div class="cc-rating"><span class="cc-stars">★</span>4.9 (1.8K)</div>
+          </div>
+          <button class="cc-btn" type="button" onclick="location.href='404.html'">Book Tour →</button>
+        </div>
+      </div>
+      <div class="property-card rv d1">
+        <div class="cc-img">
+          <img src="downloaded_images/real-estate-listing.webp" alt="Investment">
+          <span class="cc-label">Investment</span>
+          <span class="cc-price">$75 <s style="font-size:.7rem;opacity:.6">$80</s></span>
+          <div class="cc-overlay"></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-title">AI-Matched Investment Property With High ROI</div>
+          <div class="cc-meta">
+            <span>🕐 5 Beds</span>
+            <span>👥 24.1K</span>
+            <span>📅 Feb 16</span>
+          </div>
+          <div class="cc-foot">
+            <div class="cc-tutor">
+              <img src="downloaded_images/a3.webp" alt="">
+              <span>James Kim</span>
+            </div>
+            <div class="cc-rating"><span class="cc-stars">★</span>4.8 (5.7K)</div>
+          </div>
+          <button class="cc-btn" type="button" onclick="location.href='404.html'">Book Tour →</button>
+        </div>
+      </div>
+      <div class="property-card rv d2">
+        <div class="cc-img">
+          <img src="downloaded_images/real-estate-agent.webp" alt="Commercial">
+          <span class="cc-label">Commercial</span>
+          <span class="cc-price">$120 <s style="font-size:.7rem;opacity:.6">$125</s></span>
+          <div class="cc-overlay"></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-title">Digital Commercial — SEO, Google Ads & Social Media Strategy</div>
+          <div class="cc-meta">
+            <span>🕐 3 Beds</span>
+            <span>👥 15.6K</span>
+            <span>📅 Feb 16</span>
+          </div>
+          <div class="cc-foot">
+            <div class="cc-tutor">
+              <img src="downloaded_images/w3.webp" alt="">
+              <span>Mia Lopez</span>
+            </div>
+            <div class="cc-rating"><span class="cc-stars">★</span>4.7 (4.4K)</div>
+          </div>
+          <button class="cc-btn" type="button" onclick="location.href='404.html'">Book Tour →</button>
+        </div>
+      </div>
+      <div class="property-card rv d3">
+        <div class="cc-img">
+          <img src="downloaded_images/real-estate-luxury.webp" alt="Luxury">
+          <span class="cc-label">Luxury</span>
+          <span class="cc-price">$150 <s style="font-size:.7rem;opacity:.6">$160</s></span>
+          <div class="cc-overlay"></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-title">MBA Essentials — Strategy, Finance, Leadership & Management</div>
+          <div class="cc-meta">
+            <span>🕐 5 Beds</span>
+            <span>👥 7.2K</span>
+            <span>📅 Feb 16</span>
+          </div>
+          <div class="cc-foot">
+            <div class="cc-tutor">
+              <img src="downloaded_images/a4.webp" alt="">
+              <span>Dr. Robert Walsh</span>
+            </div>
+            <div class="cc-rating"><span class="cc-stars">★</span>4.9 (2.8K)</div>
+          </div>
+          <button class="cc-btn" type="button" onclick="location.href='404.html'">Book Tour →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- STATS BAND -->
+<!-- ============================================================ -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-block rv d1">
+        <div class="ico">👨‍🏫</div>
+        <div class="num" data-target="117">0</div>
+        <div class="lab">Licensed Agents</div>
+      </div>
+      <div class="stat-block rv d2">
+        <div class="ico">📚</div>
+        <div class="num" data-target="12456">0</div>
+        <div class="lab">Deals Closed</div>
+      </div>
+      <div class="stat-block rv d3">
+        <div class="ico">👥</div>
+        <div class="num" data-target="220234">0</div>
+        <div class="lab">Happy Customers</div>
+      </div>
+      <div class="stat-block rv d4">
+        <div class="ico">🏆</div>
+        <div class="num" data-target="100">0</div>
+        <div class="lab">% Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SERVICES -->
+<!-- ============================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="services-inner">
+      <div>
+        <div class="sec-eyebrow rv">Our Services</div>
+        <h2 class="sec-title rv">Comprehensive<br><span>Real Estate Services</span></h2>
+        <p style="color:var(--gray);font-size:.9rem;line-height:1.75;margin-bottom:32px;" class="rv">From buying and selling to rentals, valuation, virtual tours, and paperwork support, we provide end-to-end real estate services.</p>
+        <div class="svc-grid">
+          <div class="svc-item rv d1">
+            <div class="svc-ico">🏢</div>
+            <div class="svc-body"><h4>Commercial Advisory</h4><p>Location strategy, leasing support, and portfolio guidance for growing teams.</p></div>
+          </div>
+          <div class="svc-item rv d2">
+            <div class="svc-ico">👨‍🏫</div>
+            <div class="svc-body"><h4>1-on-1 Agent Guidance</h4><p>Private guidance for shortlist review, tour planning, and offer preparation.</p></div>
+          </div>
+          <div class="svc-item rv d3">
+            <div class="svc-ico">📜</div>
+            <div class="svc-body"><h4>Document Support</h4><p>Agreement, KYC, loan, and closing document coordination.</p></div>
+          </div>
+          <div class="svc-item rv d1">
+            <div class="svc-ico">🎮</div>
+            <div class="svc-body"><h4>Smart Property Matching</h4><p>Get matched with homes based on budget, location, commute, and lifestyle.</p></div>
+          </div>
+          <div class="svc-item rv d2">
+            <div class="svc-ico">🎓</div>
+            <div class="svc-body"><h4>Home Loan Support</h4><p>Loan partner coordination and affordability guidance for eligible customers.</p></div>
+          </div>
+          <div class="svc-item rv d3">
+            <div class="svc-ico">🌍</div>
+            <div class="svc-body"><h4>Local Market Support</h4><p>Neighborhood insights, pricing trends, and local guidance from area specialists.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="svc-img-side rv-r">
+        <img src="downloaded_images/real-estate-exterior.webp" alt="Services">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CTA BAND / FREE COURSES -->
+<!-- ============================================================ -->
+<section id="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <div class="sec-eyebrow rv">Get Free Property Shortlist</div>
+        <h2 class="sec-title rv">Find, Compare, And Book<br>Your Next <span>Property Tour</span></h2>
+        <p class="sec-desc rv">Upcoming real estate for customers — join thousands of customers who have already transformed their careers using Stackly's world-class platform.</p>
+        <div class="rv" style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="404.html" class="hbtn-main">🎓 Start Free Shortlist</a>
+          <a href="contact.html" class="hbtn-ghost">Contact Us →</a>
+        </div>
+      </div>
+      <div class="cta-img rv-r">
+        <img src="downloaded_images/real-estate-hero.webp" alt="Free Properties">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- EVENTS -->
+<!-- ============================================================ -->
+<section id="events">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Events</div>
+      <h2 class="sec-title">Our Upcoming <span>Events</span></h2>
+      <p class="sec-desc">Join open-house weekends, buyer seminars, investment briefings, and neighborhood walkthroughs near you.</p>
+    </div>
+    <div class="events-list">
+      <div class="event-card rv d1">
+        <div class="ev-date"><div class="ev-day">06</div><div class="ev-mon">May</div></div>
+        <div class="ev-body">
+          <span class="ev-tag">Workshop</span>
+          <h4>Open House Weekend For Premium Villas</h4>
+          <p>Tour verified homes, compare amenities, and speak with local agents about pricing and availability.</p>
+          <div class="ev-meta"><span>📍 Salem, Tamil Nadu</span><span>🕐 08:00 AM – 05:00 PM</span><span>👥 150 seats</span></div>
+        </div>
+        <div class="ev-action"><button class="ev-reg" type="button" onclick="location.href='404.html'">Register</button></div>
+      </div>
+      <div class="event-card rv d2">
+        <div class="ev-date"><div class="ev-day">20</div><div class="ev-mon">Jun</div></div>
+        <div class="ev-body">
+          <span class="ev-tag">Seminar</span>
+          <h4>Build Real Estate Strategy — Leadership in Property Search</h4>
+          <p>A practical session covering budgets, home loans, legal checks, and confident offer planning.</p>
+          <div class="ev-meta"><span>📍 Coimbatore, TN</span><span>🕐 04:00 PM – 05:00 PM</span><span>👥 80 seats</span></div>
+        </div>
+        <div class="ev-action"><button class="ev-reg" type="button" onclick="location.href='404.html'">Register</button></div>
+      </div>
+      <div class="event-card rv d3">
+        <div class="ev-date"><div class="ev-day">30</div><div class="ev-mon">Jul</div></div>
+        <div class="ev-body">
+          <span class="ev-tag">Conference</span>
+          <h4>AI & Future of Real Estate — Annual Tech Summit 2024</h4>
+          <p>See how smart matching, price analytics, and virtual tours are changing the way customers buy homes.</p>
+          <div class="ev-meta"><span>📍 Chennai, Tamil Nadu</span><span>🕐 01:00 PM – 06:30 PM</span><span>👥 300 seats</span></div>
+        </div>
+        <div class="ev-action"><button class="ev-reg" type="button" onclick="location.href='404.html'">Register</button></div>
+      </div>
+      <div class="event-card rv d1">
+        <div class="ev-date"><div class="ev-day">06</div><div class="ev-mon">Aug</div></div>
+        <div class="ev-body">
+          <span class="ev-tag">Bootcamp</span>
+          <h4>30-Day Coding Bootcamp — Web Residential Intensive</h4>
+          <p>Walk through high-demand neighborhoods and review live pricing, rental yield, and resale trends.</p>
+          <div class="ev-meta"><span>📍 Online (Zoom)</span><span>🕐 09:30 AM – 04:30 PM</span><span>👥 50 seats</span></div>
+        </div>
+        <div class="ev-action"><button class="ev-reg" type="button" onclick="location.href='404.html'">Register</button></div>
+      </div>
+      <div class="event-card rv d2">
+        <div class="ev-date"><div class="ev-day">27</div><div class="ev-mon">Sep</div></div>
+        <div class="ev-body">
+          <span class="ev-tag">Masterclass</span>
+          <h4>Data Science Masterclass — Python, ML & Visualization</h4>
+          <p>Compare rental demand, appreciation potential, and document readiness before you invest.</p>
+          <div class="ev-meta"><span>📍 Bangalore, KA</span><span>🕐 10:00 AM – 06:00 PM</span><span>👥 120 seats</span></div>
+        </div>
+        <div class="ev-action"><button class="ev-reg" type="button" onclick="location.href='404.html'">Register</button></div>
+      </div>
+      <div class="event-card rv d3">
+        <div class="ev-date"><div class="ev-day">15</div><div class="ev-mon">Oct</div></div>
+        <div class="ev-body">
+          <span class="ev-tag">Networking</span>
+          <h4>Stackly Annual Property Expo 2024</h4>
+          <p>Meet builders, loan partners, legal advisors, and local agents at our biggest property event of the year.</p>
+          <div class="ev-meta"><span>📍 Mumbai, MH</span><span>🕐 12:00 PM – 01:00 PM</span><span>👥 500 seats</span></div>
+        </div>
+        <div class="ev-action"><button class="ev-reg" type="button" onclick="location.href='404.html'">Register</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- TEACHERS -->
+<!-- ============================================================ -->
+<section id="admins" style="background:var(--light)">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Our Admins</div>
+      <h2 class="sec-title">Meet Our <span>Local Agents</span></h2>
+      <p class="sec-desc">Our licensed agents bring deep local experience into every search, making property decisions practical, transparent, and confident.</p>
+    </div>
+    <div class="admins-grid">
+      <div class="admin-card rv d1">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-agent.webp" alt="Alex Turner">
+          <div class="tc-overlay">
+            <div class="tc-socials">
+              <a href="404.html" class="tc-soc">f</a>
+              <a href="404.html" class="tc-soc">in</a>
+              <a href="404.html" class="tc-soc">tw</a>
+            </div>
+          </div>
+        </div>
+        <div class="tc-info">
+          <h4>Alex Turner</h4>
+          <p>Senior Residential Advisor</p>
+          <div class="tc-stats">
+            <div class="tcs"><span>42</span><small>Deals</small></div>
+            <div class="tcs"><span>98K</span><small>Customers</small></div>
+            <div class="tcs"><span>4.9★</span><small>Rating</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card rv d2">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-luxury.webp" alt="Dr. Sarah Chen">
+          <div class="tc-overlay">
+            <div class="tc-socials">
+              <a href="404.html" class="tc-soc">f</a>
+              <a href="404.html" class="tc-soc">in</a>
+              <a href="404.html" class="tc-soc">gh</a>
+            </div>
+          </div>
+        </div>
+        <div class="tc-info">
+          <h4>Dr. Sarah Chen</h4>
+          <p>Luxury Homes Specialist</p>
+          <div class="tc-stats">
+            <div class="tcs"><span>28</span><small>Deals</small></div>
+            <div class="tcs"><span>74K</span><small>Customers</small></div>
+            <div class="tcs"><span>4.8★</span><small>Rating</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card rv d3">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-modern-home.webp" alt="James Kim">
+          <div class="tc-overlay">
+            <div class="tc-socials">
+              <a href="404.html" class="tc-soc">f</a>
+              <a href="404.html" class="tc-soc">in</a>
+              <a href="404.html" class="tc-soc">tw</a>
+            </div>
+          </div>
+        </div>
+        <div class="tc-info">
+          <h4>James Kim</h4>
+          <p>Investment Property Analyst</p>
+          <div class="tc-stats">
+            <div class="tcs"><span>35</span><small>Deals</small></div>
+            <div class="tcs"><span>62K</span><small>Customers</small></div>
+            <div class="tcs"><span>4.9★</span><small>Rating</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card rv d4">
+        <div class="tc-img">
+          <img src="downloaded_images/real-estate-condo.webp" alt="Dr. Robert Walsh">
+          <div class="tc-overlay">
+            <div class="tc-socials">
+              <a href="404.html" class="tc-soc">f</a>
+              <a href="404.html" class="tc-soc">in</a>
+              <a href="404.html" class="tc-soc">yt</a>
+            </div>
+          </div>
+        </div>
+        <div class="tc-info">
+          <h4>Dr. Robert Walsh</h4>
+          <p>Harvard Luxury Agency Professor</p>
+          <div class="tc-stats">
+            <div class="tcs"><span>19</span><small>Deals</small></div>
+            <div class="tcs"><span>41K</span><small>Customers</small></div>
+            <div class="tcs"><span>4.9★</span><small>Rating</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TESTIMONIALS -->
+<!-- ============================================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Testimonials</div>
+      <h2 class="sec-title">What Our <span>Customers Say</span></h2>
+      <p class="sec-desc">Thousands of customers have found better homes and smoother closings with Stackly. Here is what they say about their experience.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card rv d1">
+        <div class="tq">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Stackly helped us compare homes clearly, schedule tours quickly, and negotiate with confidence. The entire buying process felt organized from day one.</p>
+        <div class="testi-author">
+          <img src="downloaded_images/unsplash_1494790108377-be9c29b29330_w80_q70.webp" alt="">
+          <div>
+            <div class="ta-name">Ghost Riad (Sir. Principal)</div>
+            <div class="ta-role">Home Buyer, Bangalore</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv d2">
+        <div class="tq">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">The AI matching narrowed our search to homes that actually fit our commute, budget, and lifestyle. We saved weeks of back-and-forth.</p>
+        <div class="testi-author">
+          <img src="downloaded_images/unsplash_1580489944761-15a19d654956_w60_q70.webp" alt="">
+          <div>
+            <div class="ta-name">Masum Nodi (Sir. Principal)</div>
+            <div class="ta-role">Investor, Mumbai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv d3">
+        <div class="tq">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">The agent dashboard, reminders, and document checklist kept everything calm. We knew exactly what was pending before closing.</p>
+        <div class="testi-author">
+          <img src="downloaded_images/w5.webp" alt="">
+          <div>
+            <div class="ta-name">David Doe (Sir. Principal)</div>
+            <div class="ta-role">UX Interior Readyer & Entrepreneur, Chennai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ -->
+<!-- ============================================================ -->
+<section id="faq" style="background:#fff">
+  <div class="container">
+    <div class="faq-inner">
+      <div>
+        <div class="sec-eyebrow rv">FAQ</div>
+        <h2 class="sec-title rv">Frequently Asked <span>Questions</span></h2>
+        <p style="color:var(--gray);font-size:.9rem;line-height:1.75;margin-bottom:28px;" class="rv">Everything you need to know about our platform, properties, and property search experience. Can't find the answer? Contact our support team anytime.</p>
+        <div class="faq-list">
+          <div class="faq-item rv d1 open">
+            <div class="faq-q">What does Stackly Realty help with?<span class="faq-icon">+</span></div>
+            <div class="faq-a"><div class="faq-a-inner">Stackly helps customers discover verified listings, compare neighborhoods, schedule tours, coordinate documents, and close with support from local agents.</div></div>
+          </div>
+          <div class="faq-item rv d2">
+            <div class="faq-q">Are listings verified?<span class="faq-icon">+</span></div>
+            <div class="faq-a"><div class="faq-a-inner">Featured listings are checked for core details including location, pricing, amenities, availability, and agent contact before they are promoted.</div></div>
+          </div>
+          <div class="faq-item rv d3">
+            <div class="faq-q">Can I book virtual tours?<span class="faq-icon">+</span></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes. You can request in-person tours, video walkthroughs, or callback consultations depending on the listing and agent availability.</div></div>
+          </div>
+          <div class="faq-item rv d1">
+            <div class="faq-q">Do you help with paperwork?<span class="faq-icon">+</span></div>
+            <div class="faq-a"><div class="faq-a-inner">Our Web Residential curriculum covers everything from HTML basics to advanced full-stack development. Register in our "Full-Stack Web Residential Bootcamp" to build real projects including real estate websites, e-commerce platforms, and more.</div></div>
+          </div>
+          <div class="faq-item rv d2">
+            <div class="faq-q">Can sellers list properties?<span class="faq-icon">+</span></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes. Sellers and agencies can add verified properties, manage inquiries, schedule tours, and track customer interest from the dashboard.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-img rv-r">
+        <img src="downloaded_images/real-estate-kitchen.webp" alt="FAQ">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BLOG -->
+<!-- ============================================================ -->
+<section id="blog">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Latest News</div>
+      <h2 class="sec-title">Something for <span>Real Estate News</span></h2>
+      <p class="sec-desc">Stay ahead with our expert articles on technology, property search strategies, career growth, and the latest trends in real estate worldwide.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card rv d1">
+        <div class="bc-img">
+          <img src="downloaded_images/real-estate-modern-home.webp" alt="Blog 1">
+          <div class="bc-date-badge">25 Jan</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-cat">Technology</div>
+          <div class="bc-title">New Agency Budget — How AI Is Reshaping Real Estate in 2024</div>
+          <div class="bc-excerpt">Real Estate is the process of facilitating property search. Knowledge, skills, values, beliefs, and habits of a group of people are transferred through evidence-based teaching approaches.</div>
+          <div class="bc-foot">
+            <div class="bc-author"><img src="downloaded_images/unsplash_1472099645785-5658abf4ff4e_w400_q70.webp" alt="">Admin</div>
+            <a href="404.html" class="bc-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card rv d2">
+        <div class="bc-img">
+          <img src="downloaded_images/real-estate-living.webp" alt="Blog 2">
+          <div class="bc-date-badge">25 Jan</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-cat">Property Search Tips</div>
+          <div class="bc-title">The Study Environment — Science of Effective Property Search Retention</div>
+          <div class="bc-excerpt">Real Estate is the process of facilitating property search. Knowledge, skills, values, beliefs, and habits of a group of people are transferred through evidence-based teaching approaches.</div>
+          <div class="bc-foot">
+            <div class="bc-author"><img src="downloaded_images/w3.webp" alt="">Admin</div>
+            <a href="404.html" class="bc-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card rv d3">
+        <div class="bc-img">
+          <img src="downloaded_images/real-estate-agent.webp" alt="Blog 3">
+          <div class="bc-date-badge">25 Jan</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-cat">Career Growth</div>
+          <div class="bc-title">Well Skilled Staff — Top 10 High-Paying Skills to Explore in 2024</div>
+          <div class="bc-excerpt">Real Estate is the process of facilitating property search. Knowledge, skills, values, beliefs, and habits of a group of people are transferred through evidence-based teaching approaches.</div>
+          <div class="bc-foot">
+            <div class="bc-author"><img src="downloaded_images/unsplash_1494790108377-be9c29b29330_w80_q70.webp" alt="">Admin</div>
+            <a href="404.html" class="bc-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SUBSCRIBE -->
+<!-- ============================================================ -->
+<section id="subscribe">
+  <div class="container">
+    <div class="subscribe-inner">
+      <div class="sec-eyebrow rv" style="justify-content:center;color:var(--orange)">Subscribe Now</div>
+      <h2 class="sec-title rv">Receive Weekly<br><span>Real Estate Updates</span></h2>
+      <p class="sec-desc rv">Get weekly newsletters with real estate materials, new properties, most popular posts, books and much more — straight to your inbox.</p>
+      <form class="sub-form rv" onsubmit="event.preventDefault(); validateSubscription();">
+        <input type="email" placeholder="Enter your email address..." required oninput="handleEmailInput()">
+        <button type="submit">Subscribe →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="fg-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:12px; display:inline-block;">
+          <img src="logo_gold.webp" alt="Stackly Logo" class="footer-logo-img">
+        </a>
+        <p>Stackly is a leading online real estate platform committed to making verified property search simple, transparent, and accessible. Find better properties, book tours, and close with confidence.</p>
+        <div class="foot-soc">
+          <a class="fsoc" href="404.html">f</a>
+          <a class="fsoc" href="404.html">in</a>
+          <a class="fsoc" href="404.html">tw</a>
+          <a class="fsoc" href="404.html">yt</a>
+          <a class="fsoc" href="404.html">sk</a>
+        </div>
+      </div>
+      <div class="fg-col">
+        <h4>Property Resources</h4>
+        <ul>
+          <li><a href="404.html">Projects</a></li>
+          <li><a href="404.html">Events</a></li>
+          <li><a href="404.html">Innovations</a></li>
+          <li><a href="404.html">Publications</a></li>
+          <li><a href="404.html">Collaborations</a></li>
+          <li><a href="404.html">Clubs & Activities</a></li>
+        </ul>
+      </div>
+      <div class="fg-col">
+      <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="fg-col">
+      <h4>Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li><span class="fc-icon">📍</span> Salem, Tamil Nadu, India</li>
+          <li><span class="fc-icon">📞</span> +91 98765 43210</li>
+          <li><span class="fc-icon">✉️</span> stackly@property searchplatform.com</li>
+          <li><span class="fc-icon">🌐</span> www.stacklyproperty searchplatform.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2024 Stackly. All rights reserved. Interior Readyed with ❤️ in Salem, Tamil Nadu.</p>
+      <div class="foot-links">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Service</a>
+        <a href="404.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+/* ===== LOADER TRANSITION ===== */
+const logo = document.querySelector('a.nav-logo');
+if (logo) {
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('show');
+      setTimeout(() => {
+        window.location.href = logo.getAttribute('href');
+      }, 1500);
+    } else {
+      window.location.href = logo.getAttribute('href');
+    }
+  });
+}
+
+/* ===== CURSOR ===== */
+const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
+document.querySelectorAll('a,button,.feat-card,.property-card,.admin-card,.testi-card,.event-card,.blog-card,.svc-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
+});
+
+/* ===== BACKGROUND VIDEO CAROUSEL & GSAP TEXT ANIMATIONS ===== */
+const slides = [
+  {
+    badge: "🎓 Global Property Search Community",
+    title: 'Real Estate<br><span class="hl">Made Simple</span><br>For You',
+    subtext: "We help customers discover verified homes, compare neighborhoods, schedule tours, and close deals with a trusted real estate team."
+  },
+  {
+    badge: "🏆 Achieve Your Dreams",
+    title: 'Unlock Your<br><span class="hl">Academic Success</span><br>Today',
+    subtext: "Our programs are designed to empower customers to reach graduation day and excel in their careers. Transform your aspirations into achievements."
+  },
+  {
+    badge: "✨ Celebrate Property Search",
+    title: 'Experience the<br><span class="hl">Joy of Property Search</span><br>Every Day',
+    subtext: "Join a community where every milestone is celebrated. From day one to graduation, we provide the support you need to succeed with joy."
+  }
+];
+
+let currentSlideIdx = 0;
+const videoElements = document.querySelectorAll('.hero-video');
+const badgeTextElement = document.querySelector('#hero-badge .badge-text');
+const titleElement = document.querySelector('#hero-title');
+const subElement = document.querySelector('#hero-sub');
+
+function splitTextIntoWords(element, htmlContent) {
+  const lines = htmlContent.split(/<br\s*\/?>/i);
+  let finalHTML = '';
+  lines.forEach(line => {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = line;
+    let lineHTML = '<span class="char-line">';
+    tempDiv.childNodes.forEach(node => {
+      if (node.nodeType === 3) { // Text node
+        const words = node.textContent.split(/\s+/);
+        words.forEach(word => {
+          if (word) {
+            lineHTML += `<span class="char-word">${word}</span> `;
+          }
+        });
+      } else if (node.nodeType === 1) { // Element node
+        const words = node.textContent.split(/\s+/);
+        const className = node.className;
+        words.forEach(word => {
+          if (word) {
+            lineHTML += `<span class="${className} char-word">${word}</span> `;
+          }
+        });
+      }
+    });
+    lineHTML += '</span>';
+    finalHTML += lineHTML;
+  });
+  element.innerHTML = finalHTML;
+}
+
+function animateSlideText(index) {
+  if (typeof gsap === 'undefined') return;
+  const slide = slides[index];
+
+  if (badgeTextElement) badgeTextElement.textContent = slide.badge;
+  if (titleElement) splitTextIntoWords(titleElement, slide.title);
+  if (subElement) subElement.textContent = slide.subtext;
+
+  gsap.killTweensOf(".char-word");
+  gsap.killTweensOf("#hero-badge");
+  gsap.killTweensOf("#hero-sub");
+
+  gsap.set(".char-word", { translateY: "110%", opacity: 0 });
+  gsap.set("#hero-badge", { opacity: 0, y: -20 });
+  gsap.set("#hero-sub", { opacity: 0, y: 15 });
+
+  const tl = gsap.timeline();
+  tl.to("#hero-badge", { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" })
+    .to(".char-word", { translateY: "0%", opacity: 1, duration: 0.9, stagger: 0.05, ease: "power3.out" }, "-=0.4")
+    .to("#hero-sub", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.6");
+}
+
+function nextSlide() {
+  if (typeof gsap === 'undefined') return;
+  const nextIdx = (currentSlideIdx + 1) % slides.length;
+
+  gsap.to(["#hero-badge", "#hero-sub", ".char-word"], {
+    opacity: 0,
+    y: (index, target) => {
+      if (target.id === 'hero-badge') return -15;
+      return 15;
+    },
+    duration: 0.5,
+    stagger: 0.02,
+    ease: "power2.in",
+    onComplete: () => {
+      if (videoElements.length > 1) {
+        videoElements[currentSlideIdx].classList.remove('active');
+        try { videoElements[currentSlideIdx].pause(); } catch(e){}
+      }
+      
+      currentSlideIdx = nextIdx;
+      
+      if (videoElements.length > 1) {
+        videoElements[currentSlideIdx].classList.add('active');
+        try {
+          videoElements[currentSlideIdx].currentTime = 0;
+          videoElements[currentSlideIdx].play();
+        } catch(e){}
+      }
+      
+      animateSlideText(currentSlideIdx);
+    }
+  });
+}
+
+/* ===== NAVBAR SCROLL ===== */
+const nb=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nb.classList.toggle('scrolled',scrollY>80);
+  document.getElementById('scrolltop').classList.toggle('show',scrollY>400);
+});
+
+/* ===== MOBILE MENU ===== */
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.add('open');
+  document.body.classList.add('no-scroll');
+  document.documentElement.classList.add('no-scroll');
+});
+document.getElementById('mob-close').addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+});
+document.querySelectorAll('#mob-menu a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('mob-menu').classList.remove('open');
+  document.body.classList.remove('no-scroll');
+  document.documentElement.classList.remove('no-scroll');
+}));
+
+/* ===== SCROLL REVEAL ===== */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
+
+/* ===== COUNTER ANIMATION ===== */
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target,target=+el.dataset.target,inc=target/60;
+      let v=0;const t=setInterval(()=>{v+=inc;if(v>=target){el.textContent=target.toLocaleString();clearInterval(t)}else{el.textContent=Math.floor(v).toLocaleString()}},20);
+      co.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-block .num[data-target]').forEach(el=>co.observe(el));
+
+/* ===== COURSE TABS ===== */
+document.querySelectorAll('.ctab').forEach(t=>{
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+/* ===== FAQ ACCORDION ===== */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',function(){
+    const item=this.parentElement;
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+
+/* ===== FORM FOCUS MICRO ===== */
+document.querySelectorAll('.form-group input,.form-group textarea,.form-group select').forEach(el=>{
+  el.addEventListener('focus',()=>el.parentElement.querySelector('label').style.color='var(--orange)');
+  el.addEventListener('blur',()=>el.parentElement.querySelector('label').style.color='');
+});
+
+/* ===== NAV ACTIVE ON SCROLL ===== */
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-menu>li>a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  navLinks.forEach(a=>{
+    const href = a.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      a.classList.remove('active');
+      if(href==='#'+cur)a.classList.add('active');
+    }
+  });
+});
+
+/* ===== INITIALIZE CAROUSEL & ANIMATIONS ===== */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    try {
+      videoElements[0].play();
+    } catch(e){}
+    
+    animateSlideText(0);
+
+    if (typeof gsap !== 'undefined') {
+      gsap.from(".hero-btns", { opacity: 0, scale: 0.95, duration: 0.8, delay: 0.6, ease: "back.out(1.5)" });
+      gsap.from(".hero-content .hero-stats > div", { opacity: 0, y: 20, duration: 0.8, delay: 0.8, stagger: 0.15, ease: "power2.out" });
+    }
+
+    setInterval(nextSlide, 7000);
+  }, 2200);
+});
+
+function validateSubscription() {
+  const emailInput = document.querySelector('.sub-form input');
+  const email = emailInput.value.trim();
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/;
+  if (!regex.test(email)) {
+    emailInput.style.borderColor = 'red';
+    emailInput.style.boxShadow = '0 0 10px rgba(255, 0, 0, 0.3)';
+    alert('Please enter a valid email address ending with .com');
+  } else {
+    emailInput.style.borderColor = '';
+    emailInput.style.boxShadow = '';
+    location.href = '404.html';
+  }
+}
+
+function handleEmailInput() {
+  const emailInput = document.querySelector('.sub-form input');
+  emailInput.style.borderColor = '';
+  emailInput.style.boxShadow = '';
+}
+
+
+</script>
+</body>
+</html>

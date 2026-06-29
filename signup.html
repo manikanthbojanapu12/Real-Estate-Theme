@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account - Stackly</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-edu-wrapper">
+    <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" />
+          <stop offset="50%" stop-color="#ff6b35" />
+          <stop offset="100%" stop-color="#ffcc00" />
+        </linearGradient>
+        <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="ld-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+  </div>
+  <div class="ld-bar-bg"><div class="ld-bar"></div></div>
+  <div class="ld-words">Creating your account...</div>
+</div>
+
+<div id="signup-page">
+  <div class="signup-card">
+
+    <!-- Left Side: Visual real estate-themed image -->
+    <div class="signup-visual">
+      <img src="downloaded_images/real-estate-hero.webp" alt="Real Estate Theme Image">
+      <div class="signup-visual-overlay"></div>
+      <div class="signup-visual-text">
+        <h3>Join The Stackly Realty Network</h3>
+        <p>Create an account to save listings, book tours, and track your property journey.</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Form & Navigation -->
+    <div class="signup-form-side">
+      <div class="signup-box-header">
+        <a href="index.html" class="nav-logo">
+          <img src="logo_gold.webp" alt="Stackly Logo" class="nav-logo-img">
+        </a>
+        <a href="login.html" class="btn-back-home">← Back to Login</a>
+      </div>
+
+      <div class="signup-header">
+        <h2>Create Account</h2>
+        <p>Sign up to start your property search today</p>
+      </div>
+
+      <form onsubmit="handleSignup(event)">
+
+        <!-- Role Selection -->
+        <div class="role-selector">
+          <span class="role-label">Sign up as</span>
+          <div class="role-options">
+            <label class="role-option">
+              <input type="radio" name="role" value="customer" checked>
+              <span class="role-chip">
+                <span class="role-icon">🎓</span>
+                <span class="role-text">Customer</span>
+              </span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="role" value="admin">
+              <span class="role-chip">
+                <span class="role-icon">🧑‍🏫</span>
+                <span class="role-text">Admin</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Full Name Field -->
+        <div class="form-float">
+          <input type="text" id="name" placeholder=" " required autocomplete="name" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
+          <label for="name">Full Name</label>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-float">
+          <input type="email" id="email" placeholder=" " required autocomplete="email" pattern="^[^\s@]+@[^\s@]+\.com$" title="Please enter a valid email address ending in .com">
+          <label for="email">Email Address</label>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-float">
+          <input type="password" id="password" placeholder=" " required autocomplete="new-password" minlength="6">
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="form-float">
+          <input type="password" id="confirm-password" placeholder=" " required autocomplete="new-password" minlength="6">
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+
+        <!-- Terms Checkbox -->
+        <div class="signup-terms">
+          <label>
+            <input type="checkbox" id="terms" required>
+            I agree to the <a href="404.html">Terms of Service</a> and <a href="404.html">Privacy Policy</a>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-signup-submit">Create Account</button>
+
+        <!-- Divider -->
+        <div class="social-login-sep">or sign up with</div>
+
+        <!-- Social Login Grid -->
+        <div class="social-login-grid">
+          <button type="button" class="btn-social-login" onclick="handleSocialSignup('Google');">
+            <span>🌐</span> Google
+          </button>
+          <button type="button" class="btn-social-login" onclick="handleSocialSignup('Facebook');">
+            <span>👥</span> Facebook
+          </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="signup-footer">
+          Already have an account? <a href="login.html">Sign In</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const logo = document.querySelector('.signup-box-header a.nav-logo');
+
+const handleTransition = (e, url) => {
+  if (e) e.preventDefault();
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.classList.add('show');
+    setTimeout(() => {
+      window.location.href = url;
+    }, 1500);
+  } else {
+    window.location.href = url;
+  }
+};
+
+if (logo) logo.addEventListener('click', (e) => handleTransition(e, logo.getAttribute('href')));
+
+/* ===== SIGNUP FLOW ===== */
+const handleSignup = (e) => {
+  e.preventDefault();
+  const nameVal = document.getElementById('name').value;
+  const emailVal = document.getElementById('email').value;
+  const passVal = document.getElementById('password').value;
+  const confirmPassVal = document.getElementById('confirm-password').value;
+  const roleVal = document.querySelector('input[name="role"]:checked').value;
+  
+  if (passVal !== confirmPassVal) {
+    alert("Passwords do not match!");
+    return;
+  }
+  
+  // Clear any existing active session to force login page entry
+  localStorage.removeItem('userEmail');
+  localStorage.removeItem('userRole');
+  
+  // Save credentials for login validation mock
+  localStorage.setItem('registeredEmail', emailVal);
+  localStorage.setItem('registeredRole', roleVal);
+  
+  // Directly redirect to the login page without alert or loader transition
+  window.location.href = 'login.html';
+};
+
+const handleSocialSignup = (provider) => {
+  window.location.href = '404.html';
+};
+
+/* ===== CURSOR ===== */
+const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
+document.querySelectorAll('a,button,.btn-social-login').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
+});
+</script>
+</body>
+</html>

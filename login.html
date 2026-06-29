@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In - Stackly</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-edu-wrapper">
+    <svg class="loader-edu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="eduGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" />
+          <stop offset="50%" stop-color="#ff6b35" />
+          <stop offset="100%" stop-color="#ffcc00" />
+        </linearGradient>
+        <linearGradient id="eduGradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0d9488" stop-opacity="0.1" />
+          <stop offset="50%" stop-color="#ff6b35" stop-opacity="0.1" />
+          <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.1" />
+        </linearGradient>
+      </defs>
+      <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M2 10l10-5 10 5-10 5z" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#eduGradFill)"/>
+      <path d="M22 10v6" stroke="url(#eduGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="ld-logo">
+    <img src="logo_gold.webp" alt="Stackly Logo" class="loader-logo-img">
+  </div>
+  <div class="ld-bar-bg"><div class="ld-bar"></div></div>
+  <div class="ld-words">Opening secure portal...</div>
+</div>
+
+  <div id="login-page">
+    <!-- Login Card Container (Split Layout) -->
+    <div class="login-card">
+    
+    <!-- Left Side: Visual real estate-themed image -->
+    <div class="login-visual">
+      <img src="downloaded_images/real-estate-luxury.webp" alt="Real Estate Theme Image">
+      <div class="login-visual-overlay"></div>
+      <div class="login-visual-text">
+        <h3>Find Your Place</h3>
+        <p>Access saved listings, tour requests, document updates, and agent follow-ups from one secure dashboard.</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Form & Navigation Links inside this box -->
+    <div class="login-form-side">
+      <!-- Box Header (Logo and Back button option inside the box) -->
+      <div class="login-box-header">
+        <a href="index.html" class="nav-logo">
+          <img src="logo_gold.webp" alt="Stackly Logo" class="nav-logo-img">
+        </a>
+        <a href="index.html" class="btn-back-home">🏠 Back</a>
+      </div>
+
+      <div class="login-header">
+        <h2>Welcome Back</h2>
+        <p>Sign in to access your dashboard</p>
+      </div>
+
+      <form onsubmit="handleLogin(event)">
+
+        <!-- Role Selection -->
+        <div class="role-selector">
+          <span class="role-label">Sign in as</span>
+          <div class="role-options">
+            <label class="role-option">
+              <input type="radio" name="role" value="customer" checked>
+              <span class="role-chip">
+                <span class="role-icon">🎓</span>
+                <span class="role-text">Customer</span>
+              </span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="role" value="admin">
+              <span class="role-chip">
+                <span class="role-icon">🧑‍🏫</span>
+                <span class="role-text">Admin</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-float">
+          <input type="email" id="email" placeholder=" " required autocomplete="email" pattern="^[^\s@]+@[^\s@]+\.com$" title="Please enter a valid email address ending in .com">
+          <label for="email">Email Address</label>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-float">
+          <input type="password" id="password" placeholder=" " required autocomplete="current-password" minlength="6">
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="login-options">
+          <label>
+            <input type="checkbox" id="remember"> Remember me
+          </label>
+          <a href="404.html">Forgot Password?</a>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-login-submit">Sign In</button>
+
+        <!-- Social Login Divider -->
+        <div class="social-login-sep">or sign in with</div>
+
+        <!-- Social Login Grid -->
+        <div class="social-login-grid">
+          <button type="button" class="btn-social-login" onclick="handleSocialLogin('Google');">
+            <span>🌐</span> Google
+          </button>
+          <button type="button" class="btn-social-login" onclick="handleSocialLogin('Facebook');">
+            <span>👥</span> Facebook
+          </button>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="login-footer">
+          Don't have an account? <a href="signup.html">Book Tour</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ===== LOADER TRANSITION ===== */
+const logo = document.querySelector('.login-box-header a.nav-logo');
+const backHome = document.querySelector('.btn-back-home');
+
+const handleTransition = (e, url) => {
+  if (e) e.preventDefault();
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.classList.add('show');
+    setTimeout(() => {
+      window.location.href = url;
+    }, 1500);
+  } else {
+    window.location.href = url;
+  }
+};
+
+if (logo) logo.addEventListener('click', (e) => handleTransition(e, logo.getAttribute('href')));
+if (backHome) backHome.addEventListener('click', (e) => handleTransition(e, backHome.getAttribute('href')));
+
+/* ===== LOGIN FLOW ===== */
+const handleLogin = (e) => {
+  e.preventDefault();
+  const emailVal = document.getElementById('email').value;
+  const roleVal = document.querySelector('input[name="role"]:checked').value;
+  
+  localStorage.setItem('userEmail', emailVal);
+  localStorage.setItem('userRole', roleVal);
+  
+  handleTransition(null, 'dashboard.html');
+};
+
+const handleSocialLogin = (provider) => {
+  window.location.href = '404.html';
+};
+
+/* ===== CURSOR ===== */
+const cd=document.getElementById('cur-dot'),cr=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function ac(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(ac)})();
+document.querySelectorAll('a,button,.btn-social-login').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('big'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('big'));
+});
+</script>
+</body>
+</html>
