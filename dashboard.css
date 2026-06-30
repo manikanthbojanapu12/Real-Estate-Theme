@@ -29,9 +29,16 @@ body.dashboard-body {
   overflow-x: hidden;
 }
 
+body.dashboard-body *,
+body.dashboard-body *::before,
+body.dashboard-body *::after {
+  min-width: 0;
+}
+
 #dashboard-page {
   display: flex;
   min-height: 100vh;
+  width: 100%;
 }
 
 /* ===================== SIDEBAR ===================== */
@@ -193,6 +200,8 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .header-left h1 span.wave-hand {
@@ -221,6 +230,7 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .user-chip {
@@ -234,6 +244,15 @@ body.dashboard-body {
   color: #e5e7eb;
   font-size: 0.82rem;
   font-weight: 500;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.user-chip span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .user-chip svg {
@@ -273,6 +292,7 @@ body.dashboard-body {
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 0;
 }
 
 .stat-card:hover {
@@ -339,6 +359,8 @@ body.dashboard-body {
   font-size: 0.72rem;
   font-weight: 600;
   align-self: flex-start;
+  max-width: 100%;
+  white-space: normal;
 }
 
 .stat-badge svg {
@@ -371,6 +393,7 @@ body.dashboard-body {
   border: 1px solid var(--db-card-border);
   border-radius: 20px;
   padding: 28px;
+  min-width: 0;
 }
 
 .section-header {
@@ -387,6 +410,8 @@ body.dashboard-body {
   font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .section-title svg {
@@ -423,6 +448,7 @@ body.dashboard-body {
   padding: 16px;
   align-items: center;
   transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  min-width: 0;
 }
 
 .property-item:hover {
@@ -480,6 +506,7 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .property-progress-text {
@@ -516,6 +543,7 @@ body.dashboard-body {
   gap: 16px;
   align-items: center;
   margin-top: 8px;
+  flex-wrap: wrap;
 }
 .admin-meta-item {
   font-size: 0.78rem;
@@ -523,6 +551,7 @@ body.dashboard-body {
   display: flex;
   align-items: center;
   gap: 5px;
+  min-width: 0;
 }
 .admin-meta-item svg {
   width: 14px;
@@ -555,6 +584,8 @@ body.dashboard-body {
   border: 1px solid rgba(255,255,255,0.03);
   border-radius: 8px;
   transition: background-color 0.2s, border-color 0.2s;
+  gap: 14px;
+  min-width: 0;
 }
 
 .submission-item:hover {
@@ -566,6 +597,7 @@ body.dashboard-body {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .sub-customer-name {
@@ -577,12 +609,14 @@ body.dashboard-body {
 .sub-task-title {
   font-size: 0.76rem;
   color: var(--db-text-muted);
+  overflow-wrap: anywhere;
 }
 
 .sub-right {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .sub-time {
@@ -614,6 +648,7 @@ body.dashboard-body {
   border-radius: 20px;
   padding: 24px;
   color: #ffffff;
+  min-width: 0;
 }
 
 .calendar-header {
@@ -750,6 +785,7 @@ body.dashboard-body {
   background: rgba(255, 255, 255, 0.01);
   border-left: 3px solid var(--db-gold);
   border-radius: 0 6px 6px 0;
+  min-width: 0;
 }
 
 .event-time {
@@ -762,6 +798,7 @@ body.dashboard-body {
 .event-text {
   font-size: 0.78rem;
   color: #e5e7eb;
+  overflow-wrap: anywhere;
 }
 
 .no-events-text {
@@ -791,9 +828,11 @@ body.dashboard-body {
   #dashboard-main {
     margin-left: 0;
     padding: 24px 20px;
+    width: 100%;
   }
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .db-header {
     flex-direction: column;
@@ -803,6 +842,61 @@ body.dashboard-body {
   .header-right {
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .greeting-wrapper {
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+  .header-left,
+  .header-right,
+  .db-row,
+  .column-left,
+  .column-right,
+  .tab-content,
+  .section-card,
+  .calendar-card {
+    width: 100%;
+  }
+  .header-left h1 {
+    font-size: 1.55rem;
+    line-height: 1.2;
+  }
+  .header-left p {
+    overflow-wrap: anywhere;
+  }
+  .section-card,
+  .schedule-left,
+  .progress-left,
+  .progress-right {
+    padding: 20px;
+    border-radius: 14px;
+  }
+  .section-header {
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .property-item,
+  .submission-item,
+  .cert-item,
+  .alert-customer-item {
+    align-items: stretch;
+  }
+  .property-detail-footer {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .property-detail-footer .btn-primary-db,
+  .btn-download-cert,
+  .btn-contact-customer {
+    width: 100%;
+  }
+  .schedule-tab-layout,
+  .progress-tab-layout {
+    gap: 20px;
   }
 }
 
@@ -862,15 +956,18 @@ body.dashboard-body {
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 .property-instructor {
   font-size: 0.82rem;
   color: var(--db-text-muted);
+  overflow-wrap: anywhere;
 }
 .property-detail-progress {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 .property-detail-progress span {
   font-size: 0.8rem;
@@ -1314,6 +1411,43 @@ body.dashboard-body {
 }
 
 @media (max-width: 576px) {
+  #dashboard-main {
+    padding: 20px 14px;
+  }
+  .db-header {
+    margin-bottom: 24px;
+  }
+  .header-right {
+    align-items: stretch;
+  }
+  .user-chip,
+  .role-badge {
+    border-radius: 10px;
+  }
+  .user-chip {
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+  .role-badge {
+    width: 100%;
+    text-align: center;
+  }
+  .stat-card {
+    padding: 18px;
+  }
+  .section-card,
+  .schedule-left,
+  .progress-left,
+  .progress-right,
+  .grades-card {
+    padding: 16px;
+  }
+  .section-title {
+    font-size: 1rem;
+  }
+  .section-link {
+    font-size: 0.78rem;
+  }
   .property-item {
     flex-direction: column;
     align-items: stretch;
@@ -1323,15 +1457,122 @@ body.dashboard-body {
     width: 100%;
     height: 140px;
   }
+  .property-details h4 {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+  }
+  .properties-grid {
+    gap: 16px;
+  }
+  .property-detail-thumb {
+    height: 140px;
+  }
+  .property-detail-body {
+    padding: 16px;
+  }
   .performance-grid {
     grid-template-columns: 1fr;
   }
+  .submission-item,
+  .cert-item,
+  .alert-customer-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sub-right {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .btn-grade {
+    flex: 1 1 120px;
+  }
+  .property-progress-container,
+  .property-detail-progress {
+    flex-wrap: wrap;
+  }
+  .property-progress-text,
+  .property-percent,
+  .property-detail-progress span {
+    white-space: normal;
+    width: auto;
+    text-align: left;
+  }
+  .property-progress-bar-bg {
+    flex-basis: 100%;
+    order: 2;
+  }
   .grade-row {
     flex-wrap: wrap;
+    gap: 8px 12px;
   }
   .grade-row > span:first-child {
     width: 100%;
     margin-bottom: 8px;
+    white-space: normal;
+    overflow: visible;
+  }
+  .grade-row > span:last-child {
+    width: auto;
+    text-align: left;
+  }
+  .grade-bar-container {
+    flex-basis: 100%;
+  }
+  .timeline-container {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .timeline-badge {
+    position: static;
+    width: fit-content;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  .timeline-item::after {
+    display: none;
+  }
+  .schedule-left h2,
+  .progress-left h2,
+  .progress-right h2 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .assignments-table-card {
+    overflow: visible;
+  }
+  .db-table,
+  .db-table thead,
+  .db-table tbody,
+  .db-table tr,
+  .db-table th,
+  .db-table td {
+    display: block;
+    width: 100%;
+  }
+  .db-table thead {
+    display: none;
+  }
+  .db-table tr {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .db-table td {
+    border-bottom: 0;
+    padding: 6px 0;
+    overflow-wrap: anywhere;
+  }
+  .db-table td:last-child {
+    padding-top: 10px;
+  }
+  .db-table .btn-grade {
+    width: 100%;
   }
 }
 
@@ -1348,5 +1589,109 @@ body.dashboard-body {
   .calendar-month {
     font-size: 0.95rem;
   }
+  .calendar-header {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .calendar-nav {
+    margin-left: auto;
+  }
+  .calendar-grid-days {
+    row-gap: 6px;
+  }
+  .event-item-desc {
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
+@media (max-width: 425px) {
+  #dashboard-main {
+    padding: 18px 12px;
+  }
+  .header-left h1 {
+    font-size: 1.35rem;
+  }
+  .btn-sidebar-toggle {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+  }
+  .stat-value {
+    font-size: 1.7rem;
+  }
+  .calendar-events-panel {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  #dashboard-main {
+    padding: 16px 10px;
+  }
+  .section-card,
+  .schedule-left,
+  .progress-left,
+  .progress-right,
+  .grades-card,
+  .calendar-card {
+    padding: 14px;
+  }
+  .section-header {
+    margin-bottom: 18px;
+  }
+  .property-item,
+  .submission-item,
+  .cert-item,
+  .alert-customer-item {
+    padding: 12px;
+  }
+  .calendar-grid-days {
+    row-gap: 4px;
+  }
+  .day-cell {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  #dashboard-main {
+    padding: 14px 8px;
+  }
+  .header-left h1 {
+    font-size: 1.22rem;
+  }
+  .header-left p,
+  .stat-label,
+  .property-instructor,
+  .timeline-content p {
+    font-size: 0.78rem;
+  }
+  .section-card,
+  .schedule-left,
+  .progress-left,
+  .progress-right,
+  .grades-card,
+  .calendar-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .calendar-card {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .calendar-month {
+    font-size: 0.86rem;
+  }
+  .calendar-nav-btn {
+    width: 26px;
+    height: 26px;
+  }
+  .btn-primary-db,
+  .btn-grade,
+  .btn-timeline,
+  .btn-download-cert,
+  .btn-contact-customer {
+    white-space: normal;
+  }
+}

@@ -610,6 +610,13 @@ footer{background:var(--navy);padding:70px 0 0}
   color: var(--orange);
   transform: translateY(-2px);
 }
+#mob-menu .mob-menu-links a.active {
+  color: var(--orange);
+  background: rgba(255, 107, 53, 0.14);
+  border: 1px solid rgba(255, 107, 53, 0.32);
+  border-radius: 10px;
+  padding: 8px 18px;
+}
 .mob-menu-actions {
   display: flex;
   flex-direction: column;
@@ -1436,4 +1443,16 @@ body.no-scroll, html.no-scroll {
   .signup-visual {
     min-height: 220px !important;
   }
+}
+.property-card{
+    transition: all .4s ease;
+}
+
+.property-card.hide{
+    display:none;
+}
+
+.ctab.active{
+    background:0 6px 20px rgba(255,107,53,.3);
+    color:#fff;
 }

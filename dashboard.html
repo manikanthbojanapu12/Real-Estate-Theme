@@ -111,12 +111,12 @@
             </button>
             <h1 id="greeting-title">Good Morning <span class="wave-hand">👋</span></h1>
           </div>
-          <p id="greeting-subtitle">Here's what's happening with your property search today.</p>
+          <p id="greeting-subtitle">Here's what's happening with your real estate portfolio today.</p>
         </div>
         <div class="header-right">
           <div class="user-chip">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <span id="user-display-email">johnbrittoj@thestackly.com</span>
+            <span id="user-display-email">manikanth@thestackly.com</span>
           </div>
           <div class="role-badge" id="user-display-role">Customer</div>
         </div>
@@ -185,7 +185,7 @@
 
           <!-- Calendar Event details panel -->
           <div class="calendar-events-panel">
-            <div class="panel-header-date" id="selected-date-label">Thursday, June 12, 2025</div>
+            <div class="panel-header-date" id="selected-date-label">Tuesday, June 30, 2026</div>
             <div class="event-items-list" id="calendar-events-list">
               <!-- Rendered via JS -->
             </div>
@@ -200,7 +200,7 @@
   <script>
     // Global State
     let currentUser = {
-      email: 'johnbrittoj@thestackly.com',
+      email: 'manikanth@thestackly.com',
       role: 'customer'
     };
     
@@ -229,93 +229,149 @@
     // Dynamic UI data
     const customerData = {
       stats: [
-        { label: 'Registered Properties', value: '12', icon: '<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 3 this month', color: 'gold' },
-        { label: 'Completed', value: '7', icon: '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 2 this month', color: 'blue' },
-        { label: 'Hours Explored', value: '48', icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 8h this week', color: 'red' },
-        { label: 'Documents Earned', value: '5', icon: '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 1 new', color: 'orange' }
+        { label: 'Properties Saved', value: '12', icon: '<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 3 this month', color: 'gold' },
+        { label: 'Site Visits', value: '7', icon: '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 2 this month', color: 'blue' },
+        { label: 'Offers Submitted', value: '48', icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 8h this week', color: 'red' },
+        { label: 'Documents Verified', value: '5', icon: '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 1 new', color: 'orange' }
       ],
       properties: [
         {
           category: 'Residential',
-          title: 'MERN Stack Web Residential',
-          thumb: 'downloaded_images/real-estate-modern-home.webp',
-          progressText: 'Module 8 of 12',
+          title: 'Luxury Villa in Jubilee Hills',
+          thumb: 'downloaded_images/house3.webp',
+          progressText: 'Viewing Scheduled',
           progressPercent: 72
         },
         {
           category: 'Investment',
-          title: 'Machine Property Search with Python',
+          title: 'Premium 3BHK Apartment',
           thumb: 'downloaded_images/real-estate-condo.webp',
-          progressText: 'Module 5 of 11',
+          progressText: 'Price Negotiation',
           progressPercent: 45
         }
       ],
       calendarEvents: {
-        '2025-5-3': [
-          { time: '02:00 PM', desc: 'MERN Stack Live Session: React Hooks' }
-        ],
-        '2025-5-12': [
-          { time: '10:00 AM', desc: 'Machine Property Search: SVMs & Decisions Trees Workshop' },
-          { time: '11:59 PM', desc: 'HTML/CSS Portfolio Assignment Submission' }
-        ],
-        '2025-5-15': [
-          { time: '04:00 PM', desc: 'Expert Webinar: The Future of generative AI' }
-        ],
-        '2025-5-20': [
-          { time: '01:00 PM', desc: 'MERN Stack Mid-Term Exam Q&A' }
-        ]
-      }
+  '2025-5-3': [
+    { time: '02:00 PM', desc: 'Luxury Apartment Site Visit' }
+  ],
+  '2025-5-12': [
+    { time: '10:00 AM', desc: 'Commercial Property Investment Seminar' },
+    { time: '11:59 PM', desc: 'Property Documentation Deadline' }
+  ],
+  '2025-5-15': [
+    { time: '04:00 PM', desc: 'Exclusive New Project Launch Event' }
+  ],
+  '2025-5-20': [
+    { time: '01:00 PM', desc: 'Client Meeting & Property Inspection' }
+  ]
+}
     };
+const adminData = {
+  stats: [
+    {
+      label: 'Active Listings',
+      value: '62',
+      icon: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+      badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 8 added this month',
+      color: 'gold'
+    },
+    {
+      label: 'Total Clients',
+      value: '184',
+      icon: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>',
+      badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 24 new clients',
+      color: 'blue'
+    },
+    {
+      label: 'Properties Sold',
+      value: '120',
+      icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
+      badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 15 this month',
+      color: 'red'
+    },
+    {
+      label: 'Pending Approvals',
+      value: '18',
+      icon: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>',
+      badge: '9 listings awaiting approval',
+      color: 'orange'
+    }
+  ],
 
-    const adminData = {
-      stats: [
-        { label: 'Active Tours', value: '6', icon: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 1 this month', color: 'gold' },
-        { label: 'Total Customers', value: '184', icon: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 24 this month', color: 'blue' },
-        { label: 'Hours Taught', value: '120', icon: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>', badge: '<svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg> 15h this week', color: 'red' },
-        { label: 'Tasks to Review', value: '18', icon: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>', badge: '9 pending reviews', color: 'orange' }
-      ],
-      properties: [
-        {
-          category: 'Residential',
-          title: 'Advanced Full Stack Residential',
-          thumb: 'downloaded_images/real-estate-modern-home.webp',
-          metaLeft: '45 Happy Customers',
-          metaRight: 'Next Tour: 11:30 AM'
-        },
-        {
-          category: 'Investment',
-          title: 'Deep Property Search & Natural Rental Processing',
-          thumb: 'downloaded_images/real-estate-condo.webp',
-          metaLeft: '32 Happy Customers',
-          metaRight: 'Next Tour: Tomorrow'
-        }
-      ],
-      submissions: [
-        { customer: 'John Doe', task: 'MERN Stack Lab 3 - MongoDB Queries', time: '10 mins ago' },
-        { customer: 'Jane Smith', task: 'ML Quiz 2 - Gradient Descent Calculations', time: '1 hour ago' },
-        { customer: 'Alex Mercer', task: 'React Native - Bottom Navigation Setup', time: '3 hours ago' }
-      ],
-      calendarEvents: {
-        '2025-5-3': [
-          { time: '02:00 PM', desc: 'Lecture: React State Hooks & Context API' }
-        ],
-        '2025-5-12': [
-          { time: '09:00 AM', desc: 'Stackly Curriculum Review Board' },
-          { time: '10:00 AM', desc: 'Lecture: Deep Property Search - Backpropagation' }
-        ],
-        '2025-5-15': [
-          { time: '05:00 PM', desc: 'Grading Deadline: MERN Portfolio Milestones' }
-        ],
-        '2025-5-20': [
-          { time: '01:00 PM', desc: 'Office Hours / Customer Consultation' }
-        ]
+  properties: [
+    {
+      category: 'Luxury Villa',
+      title: 'Modern Beachfront Villa',
+      thumb: 'downloaded_images/house3.webp',
+      metaLeft: '45 Interested Buyers',
+      metaRight: 'Next Tour: 11:30 AM'
+    },
+    {
+      category: 'Commercial',
+      title: 'Premium Office Space',
+      thumb: 'downloaded_images/real-estate-condo.webp',
+      metaLeft: '32 Interested Buyers',
+      metaRight: 'Next Tour: Tomorrow'
+    }
+  ],
+
+  submissions: [
+    {
+      customer: 'John Doe',
+      task: 'Submitted Property Purchase Request',
+      time: '10 mins ago'
+    },
+    {
+      customer: 'Jane Smith',
+      task: 'Requested Site Visit for Luxury Villa',
+      time: '1 hour ago'
+    },
+    {
+      customer: 'Alex Mercer',
+      task: 'Uploaded Property Verification Documents',
+      time: '3 hours ago'
+    }
+  ],
+
+  calendarEvents: {
+    '2025-5-3': [
+      {
+        time: '02:00 PM',
+        desc: 'Luxury Villa Open House Tour'
       }
-    };
+    ],
+
+    '2025-5-12': [
+      {
+        time: '09:00 AM',
+        desc: 'Property Investment Seminar'
+      },
+      {
+        time: '10:00 AM',
+        desc: 'Commercial Property Site Visit'
+      }
+    ],
+
+    '2025-5-15': [
+      {
+        time: '05:00 PM',
+        desc: 'Property Documentation Deadline'
+      }
+    ],
+
+    '2025-5-20': [
+      {
+        time: '01:00 PM',
+        desc: 'Client Property Inspection Meeting'
+      }
+    ]
+  }
+};
 
     // Calendar state
-    let calYear = 2025;
+    let calYear = 2026;
     let calMonth = 5; // June (0-indexed)
-    let selectedDay = 12; // Start with June 12 active
+    let selectedDay = 30; // Start with June 30 active
 
     const initDashboard = () => {
       // Set email and role badges
@@ -595,22 +651,22 @@
         container.innerHTML = `
           <div class="section-card">
             <div class="section-header">
-              <h3 class="section-title">My Active Lectures</h3>
+              <h3 class="section-title">My Active Properties</h3>
             </div>
             <div class="properties-grid">
               <div class="property-detail-card">
                 <div class="property-detail-thumb">
-                  <img src="downloaded_images/real-estate-modern-home.webp" alt="Property Thumbnail">
+                  <img src="downloaded_images/house1.webp" alt="Property Thumbnail">
                 </div>
                 <div class="property-detail-body">
-                  <div class="property-detail-cat">Residential</div>
-                  <h3>Advanced Full Stack Residential</h3>
-                  <p class="property-instructor">Registered: 45 Customers | Room: 102</p>
-                  <div class="property-detail-footer">
-                    <span>Next Tour: 11:30 AM Today</span>
-                    <button class="btn-primary-db" onclick="location.href='404.html';">Start Lecture</button>
-                  </div>
-                </div>
+  <div class="property-detail-cat">Residential</div>
+  <h3>4 BHK Luxury Villa</h3>
+  <p class="property-instructor">Price: $850,000 | 4 Beds • 3 Baths • 2,800 sq ft</p>
+  <div class="property-detail-footer">
+    <span>Open House: Today 11:30 AM</span>
+    <button class="btn-primary-db" onclick="location.href='404.html';">View Property</button>
+  </div>
+</div>
               </div>
               
               <div class="property-detail-card">
@@ -618,14 +674,14 @@
                   <img src="downloaded_images/real-estate-condo.webp" alt="Property Thumbnail">
                 </div>
                 <div class="property-detail-body">
-                  <div class="property-detail-cat">Investment</div>
-                  <h3>Deep Property Search & NLP Masterclass</h3>
-                  <p class="property-instructor">Registered: 32 Customers | Lab: B</p>
-                  <div class="property-detail-footer">
-                    <span>Next Tour: Tomorrow 10:00 AM</span>
-                    <button class="btn-primary-db" onclick="location.href='404.html';">Start Lecture</button>
-                  </div>
-                </div>
+  <div class="property-detail-cat">Investment Property</div>
+  <h3>High-Return Commercial Complex</h3>
+  <p class="property-instructor">Expected ROI: 8.5% | Fully Leased</p>
+  <div class="property-detail-footer">
+    <span>Investor Meeting: Tomorrow 10:00 AM</span>
+    <button class="btn-primary-db" onclick="location.href='404.html';">View Property</button>
+  </div>
+</div>
               </div>
               
               <div class="property-detail-card">
@@ -633,14 +689,14 @@
                   <img src="downloaded_images/real-estate-listing.webp" alt="Property Thumbnail">
                 </div>
                 <div class="property-detail-body">
-                  <div class="property-detail-cat">Databases</div>
-                  <h3>Database Management Systems</h3>
-                  <p class="property-instructor">Registered: 54 Customers | Room: Seminar Hall</p>
-                  <div class="property-detail-footer">
-                    <span>Next Tour: Friday 2:00 PM</span>
-                    <button class="btn-primary-db" onclick="location.href='404.html';">Start Lecture</button>
-                  </div>
-                </div>
+  <div class="property-detail-cat">Apartment</div>
+  <h3>Downtown Luxury Apartment</h3>
+  <p class="property-instructor">Price: $680,000 | 3 Beds • 2 Baths • 1,850 sq ft</p>
+  <div class="property-detail-footer">
+    <span>Open House: Friday 2:00 PM</span>
+    <button class="btn-primary-db" onclick="location.href='404.html';">View Property</button>
+  </div>
+</div>
               </div>
             </div>
           </div>
@@ -655,12 +711,12 @@
             <div class="properties-grid">
               <div class="property-detail-card">
                 <div class="property-detail-thumb">
-                  <img src="downloaded_images/real-estate-modern-home.webp" alt="Property Thumbnail">
+                  <img src="downloaded_images/house3.webp" alt="Property Thumbnail">
                 </div>
                 <div class="property-detail-body">
                   <div class="property-detail-cat">Residential</div>
                   <h3>MERN Stack Web Residential</h3>
-                  <p class="property-instructor">Instructor: Dr. John Britto</p>
+                  <p class="property-instructor">Instructor: Dr. Mani</p>
                   <div class="property-detail-progress">
                     <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:72%"></div></div>
                     <span>72%</span>
@@ -679,7 +735,7 @@
                 <div class="property-detail-body">
                   <div class="property-detail-cat">Investment</div>
                   <h3>Machine Property Search with Python</h3>
-                  <p class="property-instructor">Instructor: Prof. Alan Turing</p>
+                  <p class="property-instructor">Instructor: Prof. Dinesh</p>
                   <div class="property-detail-progress">
                     <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:45%"></div></div>
                     <span>45%</span>
@@ -712,12 +768,12 @@
 
               <div class="property-detail-card">
                 <div class="property-detail-thumb">
-                  <img src="downloaded_images/real-estate-listing.webp" alt="Property Thumbnail">
+                  <img src="downloaded_images/house4.webp" alt="Property Thumbnail">
                 </div>
                 <div class="property-detail-body">
                   <div class="property-detail-cat">Databases</div>
                   <h3>SQL & Relational Databases</h3>
-                  <p class="property-instructor">Instructor: Grace Hopper</p>
+                  <p class="property-instructor">Instructor: Chandana</p>
                   <div class="property-detail-progress">
                     <div class="property-progress-bar-bg"><div class="property-progress-bar" style="width:15%"></div></div>
                     <span>15%</span>
@@ -734,114 +790,128 @@
       }
     };
 
-    // RENDER TAB: SCHEDULE / ASSIGNMENTS
-    const renderScheduleTab = () => {
-      const container = document.getElementById('tab-schedule');
-      container.innerHTML = '';
-      
-      if (currentUser.role === 'admin') {
-        // Admin Assignments Queue View
-        container.innerHTML = `
-          <div class="schedule-tab-layout">
-            <div class="schedule-left">
-              <h2>Submissions Pending Review</h2>
-              <div class="assignments-table-card">
-                <table class="db-table">
-                  <thead>
-                    <tr>
-                      <th>Customer Name</th>
-                      <th>Assignment</th>
-                      <th>Submitted</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>John Doe</td>
-                      <td>MERN Stack Lab 3 - MongoDB Queries</td>
-                      <td>10 mins ago</td>
-                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
-                    </tr>
-                    <tr>
-                      <td>Jane Smith</td>
-                      <td>ML Quiz 2 - Gradient Descent Calculations</td>
-                      <td>1 hour ago</td>
-                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
-                    </tr>
-                    <tr>
-                      <td>Alex Mercer</td>
-                      <td>React Native - Bottom Navigation Setup</td>
-                      <td>3 hours ago</td>
-                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
-                    </tr>
-                    <tr>
-                      <td>David Lightman</td>
-                      <td>Cyber Security basics - WOPR Access logs</td>
-                      <td>Yesterday</td>
-                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
-                    </tr>
-                    <tr>
-                      <td>Sophia Watson</td>
-                      <td>SQL Lab 1 - Select Statements</td>
-                      <td>2 days ago</td>
-                      <td><button class="btn-grade" onclick="location.href='404.html';">Grade Now</button></td>
-                    </tr>
-                  </tbody>
-                </table>
+   // RENDER TAB: SCHEDULE
+const renderScheduleTab = () => {
+  const container = document.getElementById('tab-schedule');
+  container.innerHTML = '';
+
+  if (currentUser.role === 'admin') {
+    // Admin Property Requests View
+    container.innerHTML = `
+      <div class="schedule-tab-layout">
+        <div class="schedule-left">
+          <h2>Property Requests Pending Review</h2>
+          <div class="assignments-table-card">
+            <table class="db-table">
+              <thead>
+                <tr>
+                  <th>Client Name</th>
+                  <th>Request</th>
+                  <th>Received</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>Luxury Villa Purchase Inquiry</td>
+                  <td>10 mins ago</td>
+                  <td><button class="btn-grade" onclick="location.href='404.html';">Review</button></td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>Commercial Office Site Visit</td>
+                  <td>1 hour ago</td>
+                  <td><button class="btn-grade" onclick="location.href='404.html';">Review</button></td>
+                </tr>
+                <tr>
+                  <td>Alex Mercer</td>
+                  <td>Mortgage Pre-Approval Documents</td>
+                  <td>3 hours ago</td>
+                  <td><button class="btn-grade" onclick="location.href='404.html';">Review</button></td>
+                </tr>
+                <tr>
+                  <td>David Lightman</td>
+                  <td>Property Valuation Request</td>
+                  <td>Yesterday</td>
+                  <td><button class="btn-grade" onclick="location.href='404.html';">Review</button></td>
+                </tr>
+                <tr>
+                  <td>Sophia Watson</td>
+                  <td>Rental Agreement Verification</td>
+                  <td>2 days ago</td>
+                  <td><button class="btn-grade" onclick="location.href='404.html';">Review</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="schedule-right" id="schedule-tab-cal-container">
+          <!-- Calendar widget goes here -->
+        </div>
+      </div>
+    `;
+  } else {
+    // Client Schedule Timeline
+    container.innerHTML = `
+      <div class="schedule-tab-layout">
+        <div class="schedule-left">
+          <h2>Property Schedule</h2>
+
+          <div class="timeline-container">
+
+            <div class="timeline-item">
+              <div class="timeline-badge today">Today</div>
+              <div class="timeline-content">
+                <h4>02:00 PM - Luxury Villa Site Visit</h4>
+                <p>Meet your real estate agent for a guided tour of the beachfront villa.</p>
+                <button class="btn-timeline" onclick="alert('Opening property tour details...');">
+                  View Tour
+                </button>
               </div>
             </div>
-            <div class="schedule-right" id="schedule-tab-cal-container">
-              <!-- Calendar widget goes here -->
-            </div>
-          </div>
-        `;
-      } else {
-        // Customer Schedule Timeline View
-        container.innerHTML = `
-          <div class="schedule-tab-layout">
-            <div class="schedule-left">
-              <h2>Academic Timeline</h2>
-              <div class="timeline-container">
-                <div class="timeline-item">
-                  <div class="timeline-badge today">Today</div>
-                  <div class="timeline-content">
-                    <h4>02:00 PM - MERN Stack Live Session</h4>
-                    <p>Topic: React Hooks, Custom Hooks, and Context API. Join the zoom portal.</p>
-                    <button class="btn-timeline" onclick="alert('Joining Zoom portal meeting...');">Join Live Tour</button>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-badge deadline">June 13</div>
-                  <div class="timeline-content">
-                    <h4>11:59 PM - HTML/CSS Portfolio Assignment</h4>
-                    <p>Deadline for submitting your responsive HTML/CSS web layout project.</p>
-                    <button class="btn-timeline secondary" onclick="alert('Launching assignment submission window...');">Submit Assignment</button>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-badge upcoming">June 15</div>
-                  <div class="timeline-content">
-                    <h4>04:00 PM - Expert Guest Webinar</h4>
-                    <p>Topic: Generative AI in Web Residential. Guest Speaker: Sam Altman.</p>
-                    <button class="btn-timeline" onclick="alert('Registering/Joining Webinar...');">Enter Webinar</button>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-badge upcoming">June 20</div>
-                  <div class="timeline-content">
-                    <h4>01:00 PM - MERN Stack Mid-Term Review</h4>
-                    <p>Live session to review exam topics, curriculum parameters, and mock test solutions.</p>
-                  </div>
-                </div>
+
+            <div class="timeline-item">
+              <div class="timeline-badge deadline">June 13</div>
+              <div class="timeline-content">
+                <h4>11:59 PM - Property Documents Submission</h4>
+                <p>Upload your identity proof and financial documents to continue the purchase process.</p>
+                <button class="btn-timeline secondary" onclick="alert('Opening document upload...');">
+                  Upload Documents
+                </button>
               </div>
             </div>
-            <div class="schedule-right" id="schedule-tab-cal-container">
-              <!-- Calendar widget goes here -->
+
+            <div class="timeline-item">
+              <div class="timeline-badge upcoming">June 15</div>
+              <div class="timeline-content">
+                <h4>04:00 PM - New Project Launch Event</h4>
+                <p>Attend the exclusive launch of our latest luxury residential community.</p>
+                <button class="btn-timeline" onclick="alert('Registering for the event...');">
+                  Register
+                </button>
+              </div>
             </div>
+
+            <div class="timeline-item">
+              <div class="timeline-badge upcoming">June 20</div>
+              <div class="timeline-content">
+                <h4>01:00 PM - Property Inspection</h4>
+                <p>Final inspection before completing the purchase and ownership transfer.</p>
+              </div>
+            </div>
+
           </div>
-        `;
-      }
-    };
+        </div>
+
+        <div class="schedule-right" id="schedule-tab-cal-container">
+          <!-- Calendar widget goes here -->
+        </div>
+      </div>
+    `;
+  }
+};
 
     // RENDER TAB: PROGRESS / ANALYTICS
     const renderProgressTab = () => {
@@ -853,37 +923,37 @@
         container.innerHTML = `
           <div class="progress-tab-layout">
             <div class="progress-left">
-              <h2>Teaching Performance Analytics</h2>
+              <h2>Real Estate Performance Analytics</h2>
               
               <div class="performance-grid">
                 <div class="perf-card">
-                  <span class="perf-title">Average Tour Score</span>
+                  <span class="perf-title">Property Occupancy</span>
                   <span class="perf-val">84%</span>
                 </div>
                 <div class="perf-card">
-                  <span class="perf-title">Average Attendance</span>
+                  <span class="perf-title">Client Satisfaction</span>
                   <span class="perf-val">92%</span>
                 </div>
                 <div class="perf-card">
-                  <span class="perf-title">Property Completion</span>
+                  <span class="perf-title">Sales Target</span>
                   <span class="perf-val">78%</span>
                 </div>
               </div>
               
               <div class="grades-card">
-                <h3>Tour Progress Levels</h3>
+                <h3>Property Sales Progress</h3>
                 <div class="grade-row">
-                  <span>Advanced Full Stack Residential</span>
+                  <span>AModern Beachfront Villa</span>
                   <div class="grade-bar-container"><div class="grade-bar" style="width:82%"></div></div>
                   <span>82% Complete</span>
                 </div>
                 <div class="grade-row">
-                  <span>Deep Property Search & NLP Masterclass</span>
+                  <span>Premium Office Space</span>
                   <div class="grade-bar-container"><div class="grade-bar" style="width:65%"></div></div>
                   <span>65% Complete</span>
                 </div>
                 <div class="grade-row">
-                  <span>Database Management Systems</span>
+                  <span>Downtown Luxury Apartment</span>
                   <div class="grade-bar-container"><div class="grade-bar" style="width:90%"></div></div>
                   <span>90% Complete</span>
                 </div>
@@ -891,13 +961,13 @@
             </div>
             
             <div class="progress-right">
-              <h2>Customer Alerts (Needs Help)</h2>
+              <h2>Priority Client Follow-ups</h2>
               <div class="documents-list">
                 <div class="alert-customer-item">
                   <div class="alert-icon">⚠️</div>
                   <div class="alert-customer-details">
                     <h4>David Miller</h4>
-                    <span>Progress: 35% | Midterm Score: 52%</span>
+<span>Interested in Luxury Villa | Awaiting Financing</span>
                   </div>
                   <button class="btn-contact-customer" onclick="location.href='404.html';">Contact</button>
                 </div>
@@ -905,7 +975,7 @@
                   <div class="alert-icon">⚠️</div>
                   <div class="alert-customer-details">
                     <h4>Sophia Watson</h4>
-                    <span>Progress: 40% | Attendance: 68%</span>
+                    <span>Site Visit Scheduled | Documents Pending</span>
                   </div>
                   <button class="btn-contact-customer" onclick="location.href='404.html';">Contact</button>
                 </div>
@@ -913,7 +983,7 @@
                   <div class="alert-icon">⚠️</div>
                   <div class="alert-customer-details">
                     <h4>Alex Mercer</h4>
-                    <span>Progress: 48% | Unexcused Absences: 3</span>
+                    <span>Offer Submitted | Awaiting Seller Response</span>
                   </div>
                   <button class="btn-contact-customer" onclick="location.href='404.html';">Contact</button>
                 </div>
@@ -926,61 +996,61 @@
         container.innerHTML = `
           <div class="progress-tab-layout">
             <div class="progress-left">
-              <h2>Academic Performance</h2>
+              <h2>Property Purchase Progress</h2>
               
               <div class="performance-grid">
                 <div class="perf-card">
-                  <span class="perf-title">Cumulative GPA</span>
-                  <span class="perf-val">3.8 / 4.0</span>
+                  <span class="perf-title">Properties Visited</span>
+                  <span class="perf-val">8</span>
                 </div>
                 <div class="perf-card">
-                  <span class="perf-title">Attendance Rate</span>
-                  <span class="perf-val">96%</span>
+                  <span class="perf-title">Properties Shortlisted</span>
+                  <span class="perf-val">9</span>
                 </div>
                 <div class="perf-card">
-                  <span class="perf-title">Hours Studied</span>
-                  <span class="perf-val">48 hrs</span>
+                  <span class="perf-title">Budget Utilization</span>
+                  <span class="perf-val">75%</span>
                 </div>
               </div>
               
               <div class="grades-card">
-                <h3>Property Performance</h3>
+                <h3>My Property Status</h3>
                 <div class="grade-row">
-                  <span>MERN Stack Web Residential</span>
+                  <span>Modern Beachfront Villa</span>
                   <div class="grade-bar-container"><div class="grade-bar" style="width:88%"></div></div>
-                  <span>88% (A)</span>
+                  <span>88% Match</span>
                 </div>
                 <div class="grade-row">
-                  <span>Machine Property Search with Python</span>
+                  <span>Premium Office Space</span>
                   <div class="grade-bar-container"><div class="grade-bar" style="width:74%"></div></div>
-                  <span>74% (B)</span>
+                  <span>74% Match</span>
                 </div>
                 <div class="grade-row">
-                  <span>UI/UX Interior Ready Masterclass</span>
+                  <span>Downtown Luxury Apartment</span>
                   <div class="grade-bar-container"><div class="grade-bar" style="width:95%"></div></div>
-                  <span>95% (A+)</span>
+                  <span>95% Match</span>
                 </div>
               </div>
             </div>
             
             <div class="progress-right">
-              <h2>My Documents</h2>
+              <h2>Property Documents</h2>
               <div class="documents-list">
                 <div class="cert-item">
-                  <div class="cert-icon">🎓</div>
+                  <div class="cert-icon">🏠</div>
                   <div class="cert-details">
-                    <h4>Responsive Web Interior Ready</h4>
-                    <span>Completed: May 2025</span>
+                    <h4>Property Purchase Agreement</h4>
+                    <span>Uploaded: May 2025</span>
                   </div>
-                  <button class="btn-download-cert" onclick="location.href='404.html';">Download</button>
+                  <button class="btn-download-cert" onclick="location.href='404.html';">View Document</button>
                 </div>
                 <div class="cert-item">
-                  <div class="cert-icon">🎓</div>
+                  <div class="cert-icon">🏠</div>
                   <div class="cert-details">
                     <h4>JavaScript Algorithms & Structures</h4>
-                    <span>Completed: April 2025</span>
+                    <span>Uploaded: April 2025</span>
                   </div>
-                  <button class="btn-download-cert" onclick="location.href='404.html';">Download</button>
+                  <button class="btn-download-cert" onclick="location.href='404.html';">View Document</button>
                 </div>
               </div>
             </div>
