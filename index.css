@@ -28,6 +28,7 @@
 }
 html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
 body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow-x:hidden;cursor:none;width:100%;position:relative}
+body:has(#navbar){padding-top:76px}
 
 /* ===================== CURSOR ===================== */
 #cur-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .1s}
@@ -73,8 +74,8 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
 }
 
 /* ===================== NAVBAR ===================== */
-#navbar{background:#fff;padding:0;position:sticky;top:0;z-index:899;border-bottom:1px solid var(--border);transition:all .3s ease}
-#navbar.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08);top:0}
+#navbar{background:#fff;padding:0;position:fixed;top:0;left:0;right:0;width:100%;z-index:899;border-bottom:1px solid var(--border);transition:box-shadow .3s ease;transform:translateZ(0)}
+#navbar.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08)}
 
 .nav-inner{max-width:1260px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -121,7 +122,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
 .btn-login:hover{border-color:var(--orange);color:var(--orange)}
 .btn-register{padding:9px 22px;background:var(--grad);border:none;border-radius:8px;color:#fff;font-size:.84rem;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;box-shadow:0 6px 20px rgba(255,107,53,.35);transition:all .3s}
 .btn-register:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,53,.45)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:42px;height:42px;min-width:42px;cursor:pointer;padding:0}
 .hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
 
 /* ===================== HERO ===================== */
@@ -359,6 +360,73 @@ section{padding:80px 0;position:relative}
 .stat-block .num{font-family:'Raleway',sans-serif;font-size:2.8rem;font-weight:900;color:#fff}
 .stat-block .lab{font-size:.85rem;color:rgba(255,255,255,.8);margin-top:4px}
 .stat-block .ico{font-size:2rem;margin-bottom:8px}
+/* ===============================
+   STATS RESPONSIVE
+================================ */
+
+/* Tablet */
+@media (max-width: 991px){
+    .stats-inner{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px){
+    #stats{
+        padding:45px 0;
+    }
+
+    .stats-inner{
+        grid-template-columns:1fr;
+        gap:18px;
+        padding:0 15px;
+    }
+
+    .stat-block{
+        padding:20px 15px;
+    }
+
+    .stat-block .ico{
+        font-size:1.8rem;
+    }
+
+    .stat-block .num{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .stat-block .lab{
+        font-size:.9rem;
+        line-height:1.4;
+    }
+}
+
+/* Extra Small Devices (320px) */
+@media (max-width:320px){
+    .stats-inner{
+        grid-template-columns:1fr;
+        gap:15px;
+        padding:0 12px;
+    }
+
+    .stat-block{
+        padding:18px 12px;
+    }
+
+    .stat-block .ico{
+        font-size:1.6rem;
+    }
+
+    .stat-block .num{
+        font-size:1.8rem;
+    }
+
+    .stat-block .lab{
+        font-size:.8rem;
+    }
+}
 
 /* ===================== EVENTS ===================== */
 #events{background:var(--light)}
@@ -1399,9 +1467,21 @@ body.no-scroll, html.no-scroll {
 }
 
 @media (max-width: 768px) {
+  body:has(#navbar) {
+    padding-top: 68px;
+  }
   .nav-inner {
     height: 68px;
     padding: 0 16px;
+  }
+  .nav-logo-img {
+    max-height: 40px;
+  }
+  .hamburger {
+    display: flex;
+    position: relative;
+    flex: 0 0 42px;
+    margin-left: 12px;
   }
   #hero {
     min-height: 78vh;

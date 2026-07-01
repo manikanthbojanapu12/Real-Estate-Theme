@@ -189,6 +189,7 @@ body.dashboard-body *::after {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
+
 }
 
 .header-left h1 {
@@ -1378,6 +1379,18 @@ body.dashboard-body *::after {
   gap: 16px;
 }
 
+.mobile-header-logo {
+  display: none;
+}
+
+.mobile-header-logo img {
+  display: block;
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(248, 184, 14, 0.25));
+}
+
 .btn-sidebar-toggle {
   display: none;
   background: rgba(255, 255, 255, 0.03);
@@ -1693,5 +1706,120 @@ body.dashboard-body *::after {
   .btn-download-cert,
   .btn-contact-customer {
     white-space: normal;
+  }
+}
+
+/* Fixed mobile dashboard header */
+@media (max-width: 768px) {
+  body.dashboard-body {
+    padding-top: 0;
+  }
+
+  #dashboard-main {
+    padding-top: 158px;
+  }
+
+  #dashboard-sidebar {
+    z-index: 920;
+  }
+
+  #sidebar-backdrop {
+    z-index: 900;
+  }
+
+  .db-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 880;
+    margin: 0;
+    padding: 12px 18px 14px;
+    background: rgba(9, 10, 15, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .greeting-wrapper {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-header-logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    text-decoration: none;
+  }
+
+  .btn-sidebar-toggle {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    position: relative;
+    margin: 0;
+  }
+
+  .header-left h1 {
+    margin: 0;
+    font-size: 1.35rem;
+  }
+
+  .header-left p {
+    margin-top: 8px;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  #dashboard-main {
+    padding: 150px 14px 20px;
+  }
+
+  .db-header {
+    padding: 12px 14px;
+  }
+
+  .mobile-header-logo img {
+    height: 34px;
+  }
+
+  .header-left h1 {
+    font-size: 1.18rem;
+  }
+
+  .header-left p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  #dashboard-main {
+    padding-top: 146px;
+  }
+
+  .btn-sidebar-toggle {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  #dashboard-main {
+    padding-top: 140px;
+  }
+
+  .header-left h1 {
+    font-size: 1.05rem;
+  }
+
+  .header-left p {
+    display: none;
   }
 }
